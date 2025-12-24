@@ -1,0 +1,73 @@
+{% extends 'base/base.html'%}
+ {% block title %} Add Product
+  {% endblock %} 
+{% block content %}
+<!-- ======= Main content ========== -->
+<!-- ============= message box =================== -->
+{% include 'includes/messages.html'%}
+<!-- ============= message box end =================== -->
+<!-- ============= Add product form =================== -->
+<div class="d-flex justify-content-center col-12">
+  <form
+    method="POST"
+    enctype="multipart/form-data"
+    class="border col-10 col-sm-8 col-md-7 mt-2 px-4 py-2 rounded bg-light shadow"
+  >
+    <h1 class="text-center">ADD PRODUCT</h1>
+    {% csrf_token %}
+    <div class="d-flex col-12 gap-2 justify-content-between">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="">Product Name:</label>
+          <input value="{{form.product_name.value | default:''}}" name="product_name" class="form-control" type="text" />
+        </div>
+        <div class="mb-3">
+          <label for="">Price:</label>
+          <input value="{{form.price.value | default:''}}" name="price" class="form-control" type="text" />
+        </div>
+        <div class="mb-3">
+          <label for="">Quantity:</label>
+          <input value="{{form.quantity.value | default:''}}" name="quantity" class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="">Rating:</label>
+          <input value="{{form.rating.value | default:''}}" name="rating" class="form-control" type="text" />
+        </div>
+        <div class="mb-3">
+          <label for="">Delivery Case:</label>
+          <input value="{{form.rating.value | default:''}}" name="delivery" class="form-control" type="text" />
+        </div>
+        <div class="mb-3">
+          <label for="">Offer:</label>
+          <input value="{{form.offer.value | default:''}}" name="offer" class="form-control" type="text" />
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <input  type="checkbox" name="is_trending" id="" />
+      <label for="">Trending</label>
+    </div>
+    <div class="mb-3">
+      <label for="">Category :</label>
+      <select class="form-select" name="category" id="">
+        <option value=""></option>
+        <option value="Electronics">Electronics</option>
+        <option value="Footwear">Footwear</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="">Product Image:</label>
+      <input name="img_url" class="form-control" type="file" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
+ <!-- ============= add product section end  =================== -->
+<!-- ======= Main content end  ========== -->
+{% endblock %}

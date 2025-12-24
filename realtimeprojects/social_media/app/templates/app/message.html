@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% block title %}
+Message Box
+{% endblock %}
+{% block content %}
+<div class="d-flex align-items-center flex-column p-2" style="min-height: 80vh;">
+<div class="col-9 shadow-lg bg-gray border rounded position-relative" style="min-height: 70vh;">
+    <div class="header-message mb-4  p-2  text-white d-flex align-items-center  bg-primary rounded-top">
+        <div class="d-flex align-items-center h-100  ">
+            <a  href="{% url 'app:profile' slug=profile.slug %}">
+                <img src="{{profile.formatting_url}}" class="profile-img me-2" alt="User Profile" />
+            </a>
+        </div> 
+        <div class="ms-2 d-flex flex-column ">
+            <p><a class="text-white fw-bold text-decoration-none" href="{% url 'app:profile' slug=profile.slug %}" >@{{profile.user}}</a></p>
+        </div>
+    </div>
+    <div class="body-message " style="overflow: auto;" >
+        <div class="p-2 px-4 mt-4">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.is_message_by_user %}
+            <div class="col-12 d-flex mt-2  justify-content-end">
+               <p class="h-auto  rounded  bg-secondary  text-white fw-bold p-2">{{message.message}}</p>
+               <a class="text-decoration-none ms-2" href="{% url 'app:delete_message' slug=message.slug path=request.path %}#last"><i class="fa-solid text-danger fa-trash"></i></a>
+            </div> 
+            {% else %}
+            <div class="col-12 d-flex mt-2 justify-content-start">
+              <p class="h-auto rounded bg-primary text-white fw-bold p-2">{{message.message}}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+           {% else %}
+            <p class="text-center">No Messages</p>
+             {% endif %}
+             <label for="" id="last"></label>
+        </div>
+    </div>
+    
+</div>
+    <div class="d-flex col-12  footer-message  justify-content-center">
+        <form action="" method="post" class="col-9  d-flex p-2 flex-wrap  justify-content-center gap-3">
+            {% csrf_token %}
+            <div class="col-9">
+                <input name="message" oninput="enable_btn()" id="send-input"  class="col-4 form-control px-3" type="text" placeholder="Enter Your Message Here...">
+            </div>
+            <button id="send-btn" disabled class="btn btn-primary   ">Send <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+    </div>
+</div>
+<script>
+    function enable_btn(){
+        let send_input=document.getElementById('send-input').value
+        let send_btn=document.getElementById('send-btn')
+        if (send_input){
+          send_btn.removeAttribute('disabled')
+        }
+        else if (send_input.length === 0 ){
+            send_btn.setAttribute('disabled',"true") 
+        }
+        else{
+            send_btn.setAttribute('disabled',"true") 
+        }
+    }
+</script>
+{% endblock %}

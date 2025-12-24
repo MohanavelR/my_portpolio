@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohanavel R - Portfolio</title>
+    <meta name="theme-color" content="#0000ff">
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' https://my-portpolio-ruby.vercel.app;">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <style>
+
+    </style>
+</head>
+
+<body class="theme-1">
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="panel-overlay" id="panelOverlay"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="logo">MOHANAVEL</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Theme Panel -->
+    <div class="theme-panel" id="themePanel">
+        <button class="theme-toggle-btn" id="themePanelToggle">
+            <i class="fas fa-palette"></i>
+        </button>
+        <h3 class="panel-title">Customize</h3>
+        <button class="mode-switch" id="modeSwitch">
+            <i class="fas fa-moon"></i>
+            <span id="modeText">Dark Mode</span>
+        </button>
+        <div class="color-palette">
+            <button class="color-option c1 active" data-theme="1"></button>
+            <button class="color-option c2" data-theme="2"></button>
+            <button class="color-option c3" data-theme="3"></button>
+            <button class="color-option c4" data-theme="4"></button>
+            <button class="color-option c5" data-theme="5"></button>
+            <button class="color-option c6" data-theme="6"></button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img class="image-2" src="images/mohan.jpeg"
+                        alt="Mohanavel R">
+                        <img class="image-1" src="images/mohan.png"
+                        alt="Mohanavel R">
+                </div>
+            </div>
+
+            <div class="hero-text">
+                <span class="greeting">Hello, my name is</span>
+                <h1>MOHANAVEL.R</h1>
+                <h2>I'm an <span class="typed-text">Web Developer<span class="typed-cursor">|</span></span>
+                </h2>
+                <p>Detail-oriented Web Developer who enjoys building responsive and reliable web applications.
+                    Comfortable working with HTML, CSS, JavaScript, Node.js, and frameworks including React, Django, and
+                    Flask. Values clean code, collaboration, and continuous improvement.</p>
+
+                <div class="social-links">
+                    <a href="https://github.com/MohanavelR" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/r-mohanavel-mohanavel-437508233" target="_blank"
+                        class="social-btn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Hire Me</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="resume.html" target="_blank" class="btn btn-outline">
+                        <span>Download CV</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <span class="label">Get To Know</span>
+            <h2>About Me</h2>
+            <p>Highly motivated and detail-oriented recent graduate seeking an entry-level Full Stack Developer role</p>
+        </div>
+
+        <div class="about-container">
+            <div>
+                <div class="info-card scroll-reveal-left">
+                    <h3><i class="fas fa-user"></i> Personal Info</h3>
+                    <div class="info-grid">
+                        <div class="info-row">
+                            <span class="info-label">Birthday:</span>
+                            <span class="info-value">16 December 2002</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Age:</span>
+                            <span class="info-value">23</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Location:</span>
+                            <span class="info-value">Salem, Edappadi</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">rmohanavel2003@email.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">7397543180</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Languages:</span>
+                            <span class="info-value">Tamil, English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card scroll-reveal-left soft-skills-card">
+                    <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                    <p class="soft-skills-text">Problem-solving, Quick learner, Critical thinking, Team collaboration,
+                        Communication, Adaptability</p>
+                </div>
+            </div>
+
+            <div class="info-card scroll-reveal-right">
+                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML & CSS</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70"></div>
+                    </div>
+                </div>
+                <!-- <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Java</span>
+                        <span class="skill-percent">40%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="40"></div>
+                    </div>
+                </div> -->
+               <div class="skill-item">
+    <div class="skill-header">
+        <span class="skill-name">MySQL</span>
+        <span class="skill-percent">50%</span>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-progress" data-width="50"></div>
+    </div>
+</div>
+
+<div class="skill-item">
+    <div class="skill-header">
+        <span class="skill-name">PostgreSQL</span>
+        <span class="skill-percent">45%</span>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-progress" data-width="45"></div>
+    </div>
+</div>
+
+
+
+                 <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">MongoDB</span>
+                        <span class="skill-percent">50%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="50"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-header">
+            <span class="label">My Journey</span>
+            <h2>Education & Experience</h2>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-section scroll-reveal-left">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar"></i> 2018
+                        </div>
+                        <h4 class="timeline-title">SSLC</h4>
+                        <p class="timeline-text">Government Higher Secondary School, Kullampatty - Scored 80%</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar"></i> 2020
+                        </div>
+                        <h4 class="timeline-title">HSC</h4>
+                        <p class="timeline-text">Government Higher Secondary School, Chettipatty - Scored 65%</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar"></i> 2020-2024
+                        </div>
+                        <h4 class="timeline-title">B.E Computer Science and Engineering</h4>
+                        <p class="timeline-text">J.K.K.N College of Engineering and Technology, Komarapalayam - 7.5 CGPA
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-section scroll-reveal-right">
+                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-laptop-code"></i> Current
+                        </div>
+                        <h4 class="timeline-title">Full-Time Web Developer Intern</h4>
+                        <p class="timeline-text">Webnique Digital Solutions, Bengaluru - Delivered 4+ production-ready
+                            client applications supporting 1,500+ users using MERN stack. Improved load times by ~35%
+                            through performance optimization techniques.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-certificate"></i> Completed
+                        </div>
+                        <h4 class="timeline-title">Full Stack Web Development Course</h4>
+                        <p class="timeline-text">FalconX EdTech Solutions Pvt Ltd, Coimbatore - Completed MERN stack
+                            certification with hands-on experience building 5+ full-stack applications covering
+                            responsive design, API integration, and authentication.</p>
+                    </div>
+                    <!-- <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-shield-alt"></i> Workshop
+                        </div>
+                        <h4 class="timeline-title">Cyber Security</h4>
+                        <p class="timeline-text">J.K.K.N College of Engineering and Technology - Learned about security principles and best practices.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <i class="fas fa-bullhorn"></i> Workshop
+                        </div>
+                        <h4 class="timeline-title">Digital Marketing</h4>
+                        <p class="timeline-text">J.K.K.N College of Engineering and Technology - Explored modern marketing strategies and tools.</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="landing-pages" class="section-alt-bg">
+        <div class="section-header">
+            <span class="label">Client Work</span>
+            <h2>Real-World Client Projects</h2>
+            <p>Professional landing pages and websites delivered for real businesses</p>
+        </div>
+
+        <div class="projects-container">
+            <!-- Catfit Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://www.carfit.co.in/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="images/carfit.jpg" alt="Catfit Landing Page">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <ul>
+                                <li>Built clean and semantic HTML5 structure for better accessibility and SEO</li>
+                                <li>Designed responsive layouts using modern CSS3 techniques</li>
+                                <li>Implemented mobile-first design principles with Bootstrap grid system</li>
+                                <li>Created reusable UI components using Bootstrap utilities</li>
+                                <li>Improved cross-browser compatibility and layout consistency</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Catfit – Car Accessories</h3>
+                    <p class="project-tech">HTML5, CSS3, JavaScript, ,Bootstrap</p>
+                </div>
+            </div>
+
+
+            <!-- Shri Venkateshwara Enterprises Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://shrivenkateshwaraenterprises.netlify.app/" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="./images/sve.jpg" alt="Shri Venkateshwara Enterprises">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <ul>
+                                <li>Organized HTML markup to improve page structure and maintainability</li>
+                                <li>Applied custom CSS for consistent branding and visual hierarchy</li>
+                                <li>Implemented responsive layouts adaptable to multiple screen sizes</li>
+                                <li>Utilized Bootstrap components to accelerate layout development</li>
+                                <li>Ensured smooth rendering and layout stability across major browsers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Shri Venkateshwara Enterprises – Landing Page</h3>
+                    <p class="project-tech">HTML5, CSS3, JavaScript, Bootstrap</p>
+                </div>
+            </div>
+
+            <!-- Cell World Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://cellworldweb.netlify.app/" target="_blank" class="project-source-link"
+                        title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=600&fit=crop"
+                        alt="Cell World Mobile Store">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <ul>
+                                <li>Designed clear page layouts using well-structured HTML elements</li>
+                                <li>Styled a visually appealing interface with custom CSS and layout rules</li>
+                                <li>Added basic JavaScript interactions to enhance user engagement</li>
+                                <li>Implemented responsive sections using Bootstrap grid and utilities</li>
+                                <li>Optimized layout behavior across devices and screen resolutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Cell World – Mobile Store Landing Page</h3>
+                    <p class="project-tech">HTML5, CSS3, JavaScript, Bootstrap</p>
+                </div>
+            </div>
+
+
+            <!-- Cake Bakery Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://cake-bakery-web.netlify.app/" target="_blank" class="project-source-link"
+                        title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=800&h=600&fit=crop"
+                        alt="Cake Bakery Website">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <ul>
+                                <li>Created visually appealing layouts using semantic HTML elements</li>
+                                <li>Designed responsive bakery sections with custom CSS styling</li>
+                                <li>Implemented JavaScript interactions for product previews and UI effects</li>
+                                <li>Used Bootstrap grid system for structured and mobile-friendly layouts</li>
+                                <li>Enhanced user experience through consistent design and responsiveness</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Cake Bakery – Business Landing Page</h3>
+                    <p class="project-tech">HTML, CSS, JS, Bootstrap</p>
+                </div>
+            </div>
+            <!-- Restaurant Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://restaurantlandingweb.netlify.app/" target="_blank" class="project-source-link"
+                        title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
+                        alt="Restaurant Website">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <ul>
+                                <li>Developed a clean HTML structure to present menus and sections clearly</li>
+                                <li>Styled an engaging restaurant interface using modern CSS techniques</li>
+                                <li>Added JavaScript-based interactions to improve navigation flow</li>
+                                <li>Built responsive layouts using Bootstrap grid and utility classes</li>
+                                <li>Ensured consistent appearance across devices and browsers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Restaurant – Responsive Landing Page</h3>
+                    <p class="project-tech">HTML, CSS, JS, Bootstrap</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Full Stack Projects -->
+    <section id="fullstack-projects">
+        <div class="section-header">
+            <span class="label">End-to-End Solutions</span>
+            <h2>Full Stack Projects</h2>
+            <p>Complete web applications with robust backend and dynamic frontend</p>
+        </div>
+
+        <div class="projects-container">
+            <!-- E-Commerce MERN Project -->
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://ecm.webniqueds.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://ecommerce-ui-mocha.vercel.app/" target="_blank" class="project-source-link"
+                        title="Frontend Deployment">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop"
+                        alt="E-Commerce Website">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Developed a complete MERN stack application with frontend and backend integration
+                                </li>
+                                <li>Implemented shopping cart functionality and checkout workflow</li>
+                                <li>Handled secure user authentication using JWT-based authorization</li>
+                                <li>Designed MongoDB schemas for products, users, and orders</li>
+                                <li>Connected RESTful APIs with React components for dynamic data rendering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>E-Commerce Website – MERN Stack</h3>
+                    <p class="project-tech">MongoDB, Express.js, React.js, Node.js,Tailwind css,React Redux</p>
+                </div>
+            </div>
+
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+            title="Live Project">
+            <i class="fas fa-globe"></i>
+        </a> -->
+                    <!-- <a href="https://shrivenkateshwaraenterprises.netlify.app/" target="_blank"
+            class="project-source-link" title="My Netlify Link">
+            <i class="fas fa-cloud"></i>
+        </a> -->
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                        alt="WB Root Dashboard">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Built quotation and invoice creation workflows with dynamic form handling</li>
+                                <li>Implemented FastAPI endpoints using async operations for business modules</li>
+                                <li>Designed PostgreSQL schemas for customers, quotations, and invoices</li>
+                                <li>Developed RESTful APIs for billing, pricing, and tax calculations</li>
+                                <li>Managed React state for invoice items, totals, and real-time updates</li>
+                                <li>Worked on data consistency and performance optimization in financial records</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>WB Root <span style="font-size: 0.8em; color: #00ff88;">(In Progress)</span></h3>
+                    <p class="project-tech">React.js, FastAPI, PostgreSQL,Antd Ui ,Tailwind css</p>
+                </div>
+            </div>
+
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://proflexwindowprofiles.com/manufacturers-in-india" target="_blank"
+                        class="project-source-link" title="Live Project">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop"
+                        alt="Multi-Page React Application">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Implemented React Router for navigation across 5 static pages</li>
+                                <li>Structured the application using reusable React components</li>
+                                <li>Designed responsive layouts suitable for desktop and mobile views</li>
+                                <li>Used React Hooks (useState, useEffect) for basic state handling</li>
+                                <li>Organized project files for clarity and maintainability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h3>Proflex Window Profiles</h3>
+                    <p class="project-tech">React.js, React Router, CSS3</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Personal Projects -->
+    <section id="projects" class="section-alt-bg">
+        <div class="section-header">
+            <span class="label">My Work</span>
+            <h2>Personal Projects</h2>
+            <p>A collection of my recent work showcasing various technologies and frameworks</p>
+        </div>
+
+        <div class="projects-container">
+            
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a> -->
+                    <a href="https://my-portpolio-244p.onrender.com/blog" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop"
+                        alt="Blog Application">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                             <li>Django MVT architecture</li>
+<li>Django ORM queries & model relationships</li>
+<li>User authentication & authorization system</li>
+<li>Role-based permissions and access control</li>
+<li>CRUD operations using Django views and models</li>
+<li>Template inheritance, tags, and filters</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Blog Web Application</h3>
+                    <p class="project-tech">Python Django & MySQL</p>
+                </div>
+            </div>
+
+            <div class="project-card scroll-reveal-scale">
+    <div class="project-links">
+        <a href="https://react-simple-projects-web.netlify.app/" target="_blank"
+            class="project-source-link" title="Project Demo">
+            <i class="fas fa-code"></i>
+        </a>
+    </div>
+
+    <div class="project-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop"
+            alt="React Projects">
+        <div class="project-overlay">
+            <div class="project-learnings">
+                <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                <ul>
+                    <li>React fundamentals (JSX, Components, Props, State)</li>
+                    <li>React Hooks (useState, useEffect)</li>
+                    <li>API integration & async data handling</li>
+                    <li>Conditional rendering & reusable components</li>
+                    <li>Advanced JavaScript (ES6+, promises, async/await)</li>
+                    <li>Event handling & form validation</li>
+                    <li>Error handling & loading states</li>
+                    <li>Basic project structuring & optimization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-info">
+        <h3>React Practice Projects (10+ Apps)</h3>
+        <p class="project-tech">React.js • Advanced JavaScript • API Integration</p>
+        <!-- <p class="project-desc">
+            Built multiple mini projects to strengthen React fundamentals and advanced JavaScript concepts,
+            focusing on real-world UI behavior and API-driven applications.
+        </p> -->
+    </div>
+</div>
+
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <a href="https://myportfolio-mohan.netlify.app/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <!-- <a href="https://shrivenkateshwaraenterprises.netlify.app/" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a> -->
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=800&h=600&fit=crop"
+                        alt="Portfolio">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Responsive web design principles</li>
+                                <li>CSS animations & transitions</li>
+                                <li>JavaScript DOM manipulation</li>
+                                <!-- <li>Form validation & handling</li> -->
+                                <li>Cross-browser compatibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Personal Portfolio</h3>
+                    <p class="project-tech">HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+<div class="project-card scroll-reveal-scale">
+    <div class="project-links">
+        <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+            title="Live Project">
+            <i class="fas fa-globe"></i>
+        </a> -->
+        <a href="https://mern-auth-beta-seven.vercel.app/" target="_blank"
+            class="project-source-link" title="Frontend Demo">
+            <i class="fas fa-cloud"></i>
+        </a>
+    </div>
+
+    <div class="project-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop"
+            alt="MERN Authentication System">
+        <div class="project-overlay">
+            <div class="project-learnings">
+                <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                <ul>
+                    <li>MERN stack authentication architecture</li>
+                    <li>JWT-based authentication & authorization</li>
+                    <li>Redux state management for auth flow</li>
+                    <li>Secure password hashing & token handling</li>
+                    <li>Protected routes & role-based access</li>
+                    <li>Tailwind CSS for responsive UI design</li>
+                    <li>Form validation & error handling</li>
+                    <li>REST API integration with Express & MongoDB</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-info">
+        <h3>MERN Stack Authentication System</h3>
+        <p class="project-tech">MongoDB • Express • React • Redux • Node.js • Tailwind CSS</p>
+    </div>
+</div>
+
+<div class="project-card scroll-reveal-scale">
+    <div class="project-links">
+        <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+            title="Live Project">
+            <i class="fas fa-globe"></i>
+        </a> -->
+        <a href="https://ecom-mern-mu.vercel.app/" target="_blank"
+            class="project-source-link" title="Frontend Demo">
+            <i class="fas fa-cloud"></i>
+        </a>
+    </div>
+
+    <div class="project-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop"
+            alt="MERN Ecommerce App">
+        <div class="project-overlay">
+            <div class="project-learnings">
+                <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                <ul>
+                    <li>MERN stack architecture (MongoDB, Express, React, Node.js)</li>
+                    <li>State management using Redux & Redux Toolkit</li>
+                    <li>Authentication & authorization with JWT</li>
+                    <li>PayPal payment gateway integration</li>
+                    <li>Image upload & management using Cloudinary</li>
+                    <li>Product management, cart & order workflow</li>
+                    <li>REST API integration & async handling</li>
+                    <li>Reusable components & scalable folder structure</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-info">
+        <h3>MERN Stack Ecommerce Application</h3>
+        <p class="project-tech">React.js • Redux • Node.js • Express • MongoDB • PayPal • Cloudinary</p>
+    </div>
+</div>
+
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a> -->
+                    <a href="https://ecommerce-xnci.onrender.com/" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop"
+                        alt="Ecommerce Django">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Django models & relationships</li>
+                                
+                                <!-- <li>Order management system</li> -->
+                                <li>Bootstrap responsive design</li>
+                                <li>Admin dashboard customization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Ecommerce Web Application</h3>
+                    <p class="project-tech">Django, Bootstrap & MySQL</p>
+                </div>
+            </div>
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a> -->
+                    <a href="https://instgram-clone-8tc1.onrender.com/" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop"
+                        alt="Social Media">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Social media features (posts, likes)</li>
+                                <li>File upload & image handling</li>
+                                <li>Follow/unfollow functionality</li>
+                                <li>Real-time notifications</li>
+                                <li>User profile management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Social Media App (Instagram Clone)</h3>
+                    <p class="project-tech">Django, Bootstrap & MySQL</p>
+                </div>
+            </div>
+
+            <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a> -->
+                    <a href="https://taskmanager-q7s5.onrender.com/Home" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a>
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop"
+                        alt="Task Management">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                              <ul>
+    <li>Django-based Task CRUD operations</li>
+    <li>Task priority and status management using Django models</li>
+    <li>Filtering and sorting with Django ORM queries</li>
+    <li>Responsive UI using Django templates and Bootstrap</li>
+    <li>Server-side state management with Django sessions</li>
+</ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Task Management App</h3>
+                    <p class="project-tech">Django , Mysql and Bootstrap</p>
+                </div>
+            </div>
+
+         <div class="project-card scroll-reveal-scale">
+                <div class="project-links">
+                    <!-- <a href="https://shrivenkateshwaraenterprises.com/" target="_blank" class="project-source-link"
+                        title="Live Project">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://shrivenkateshwaraenterprises.netlify.app/" target="_blank"
+                        class="project-source-link" title="My Netlify Link">
+                        <i class="fas fa-cloud"></i>
+                    </a> -->
+                </div>
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+                        alt="Gamified Learning App">
+                    <div class="project-overlay">
+                        <div class="project-learnings">
+                            <h4><i class="fas fa-graduation-cap"></i> What I Learned</h4>
+                            <ul>
+                                <li>Flask application structure & routing</li>
+                                <li>MySQL database integration</li>
+                                <li>Gamification strategies for education</li>
+                                <li>Accessibility features for PWDs</li>
+                                <li>Session management & authentication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Gamified Learning App for PWDs</h3>
+                    <p class="project-tech">Python Flask & MySQL</p>
+                </div>
+            </div>
+              
+                
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="label">Get In Touch</span>
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out for collaborations or just a friendly hello</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-card scroll-reveal-rotate">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>Call Me</h4>
+                    <p>7397543180</p>
+                </div>
+
+                <div class="contact-card scroll-reveal-rotate">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Email Me</h4>
+                    <p>rmohanavel2003@email.com</p>
+                </div>
+
+                <div class="contact-card scroll-reveal-rotate">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/r-mohanavel-mohanavel-437508233" target="_blank">Connect with
+                        me</a>
+                </div>
+            </div>
+
+            <!-- <form class="contact-form scroll-reveal-scale" id="contactForm">
+                <p id="formStatus"></p>
+                <h3>Send Me a Message</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Project Discussion">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Tell me about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mohanavel R. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/MohanavelR" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/r-mohanavel-mohanavel-437508233" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/7397543180?text=Hello%20Mohan" target="_blank" class="whatsapp-float"
+        aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- External JavaScript -->
+    <script src="js/contact.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/resume.js"></script>
+</body>
+
+</html>

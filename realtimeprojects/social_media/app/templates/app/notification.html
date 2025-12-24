@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block title %}
+Notification
+{% endblock %}
+{% block content %}
+<h3 class="text-start m-3">Notification</h3>
+  <div class="col-12 d-flex justify-content-center ">
+      {% if notifications %}
+     <div class="col-10 shadow-lg">
+        {% for notify in notifications %}
+        <div class="d-flex justify-content-center border-bottom">
+            <a href="{% url 'app:profile' slug=notify.user_slug %}" class="col-10 text-dark text-decoration-none">
+                <div class="d-flex p-3">
+                 <div href="{% url 'app:profile' slug=notify.user_slug %}" class="d-flex align-items-center">
+                     <img src="{{notify.img}}" class="profile-img me-2" alt="User Profile" />
+                 </div>
+                 <p class="fw-medium text-secondary ">@{{notify.message}}</p>
+                </div>
+            </a>
+            <div class="p-3">
+                <a href="{% url 'app:delete_notify' slug=notify.slug %}" class="btn  btn-danger"><i class="fa-solid text-white fa-trash"></i></a>
+            </div>
+        </div>
+           {% endfor %}
+    </div>
+          {% else %}
+          <p class="fs-3 text-center text-secondary">No notifications</p>
+          {% endif %}
+  </div>
+<script>
+    function delete_notify(url){
+        let message=confirm('Are You Conformed Delete ?')
+        if(message){
+            window.location.href=url
+        }
+    }
+</script>
+
+{% endblock %}

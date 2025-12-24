@@ -1,0 +1,110 @@
+<style>
+    .blog-header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .blog-title {
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin: 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .blog-title:hover {
+        transform: translateY(-2px);
+    }
+    
+    .nav-link-custom {
+        position: relative;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .nav-link-custom::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    .nav-link-custom:hover {
+        color: #fff !important;
+        transform: translateY(-2px);
+    }
+    
+    .nav-link-custom:hover::after {
+        width: 80%;
+    }
+    
+    .auth-btn {
+        padding: 0.4rem 1.2rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: inline-block;
+    }
+    
+    .btn-register {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn-register:hover {
+        background: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+    }
+    
+    .btn-login {
+        background: #4a90e2;
+        border: 1px solid #4a90e2;
+    }
+    
+    .btn-login:hover {
+        background: #357abd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    }
+    
+    .btn-logout {
+        background: #e74c3c;
+        border: 1px solid #e74c3c;
+    }
+    
+    .btn-logout:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+    }
+</style>
+
+<header class="blog-header p-3 text-white">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-3 col-sm-12 text-center text-md-start mb-2 mb-md-0">
+                <a class="text-decoration-none text-light" href="/blog">
+                    <h3 class="blog-title">Blog</h3>
+                </a>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                <div class="d-flex justify-content-center justify-content-md-end align-items-center gap-2 flex-wrap">
+                    <a class="text-light text-decoration-none nav-link-custom" href="{% url 'blog:index' %}">Home</a>
+                    <a class="text-light text-decoration-none nav-link-custom" href="{% url 'blog:about' %}">About</a>
+                    <a class="text-light text-decoration-none nav-link-custom" href="{% url 'blog:contact' %}">Contact</a>
+                    {% if user.is_authenticated %}
+                    <a class="text-light text-decoration-none nav-link-custom" href="{% url 'blog:dashboard' %}">Dashboard</a>
+                    <a class="text-light text-decoration-none auth-btn btn-logout" href="{% url 'blog:logout' %}">Logout</a>
+                    {% else %}
+                    <a class="text-light text-decoration-none auth-btn btn-register" href="{% url 'blog:register' %}">Register</a>
+                    <a class="text-light text-decoration-none auth-btn btn-login" href="{% url 'blog:login' %}">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

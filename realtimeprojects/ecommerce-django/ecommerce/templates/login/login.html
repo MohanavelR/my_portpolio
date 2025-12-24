@@ -1,0 +1,57 @@
+{% extends 'base/base.html'%} 
+{% block title%} Login {% endblock %} 
+{% block content %}
+<!-- Main content -->
+<!-- Message Box  -->
+{% include 'includes/messages.html' %}
+<!-- Message Box end -->
+<div
+  class="login-container col-12 d-flex justify-content-center align-items-center"
+>
+  <!-- Form  section  -->
+  <form
+    action=""
+    method="post"
+    class="col-11 px-5 custom-login-form col-sm-4 p-3"
+  >
+    <h1 class="text-center">Login</h1>
+    {% csrf_token %}
+    <div class="form-group my-2 d-flex flex-column">
+      <label class="my-2" for="">Enter Username </label>
+      <input
+        name="username"
+        value="{{form.username.value | default:''}}"
+        autofocus
+        class="p-1"
+        type="text"
+      />
+    </div>
+    <div class="form-group my-2 d-flex flex-column">
+      <label class="my-2" for="">Password</label>
+      <input
+        name="password"
+        value="{{form.password.value | default:''}}"
+        class="p-1"
+        type="text"
+      />
+    </div>
+    <div class="d-flex justify-content-center">
+      <button class="btn-success btn">Login</button>
+    </div>
+    <div class="mt-2">
+      <p class="text-center">
+        Don't you have a Account ?
+        <a 
+           class="text-decoration-none" 
+           href="{% url 'ecommerce:register' %}"
+          >Register</a>
+      </p>
+      <p class="text-center">
+        <a class="text-decoration-none" href="">Forgot Password</a>
+      </p>
+    </div>
+  </form>
+  <!-- Form section end  -->
+</div>
+<!-- Main content end  -->
+{% endblock %}

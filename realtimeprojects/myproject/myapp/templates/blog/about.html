@@ -1,0 +1,189 @@
+{% extends "base/base.html" %}
+{% block title %}
+About
+{% endblock %}
+{% block contant %}
+<style>
+    .about-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 4rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 50px 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+        background-size: cover;
+        opacity: 0.3;
+    }
+    
+    .about-hero h3 {
+        color: white;
+        font-weight: 700;
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .about-section {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        margin: 2rem auto;
+        max-width: 1200px;
+    }
+    
+    .about-image-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        transition: all 0.5s ease;
+    }
+    
+    .about-image-wrapper:hover {
+        transform: translateY(-10px) rotate(-2deg);
+        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+    }
+    
+    .about-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .about-image-wrapper:hover img {
+        transform: scale(1.05);
+    }
+    
+    .about-image-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .about-image-wrapper:hover::after {
+        opacity: 1;
+    }
+    
+    .about-content {
+        padding: 1rem 2rem;
+    }
+    
+    .about-content p {
+        color: #4a5568;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about-content h4 {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    
+    .about-content h4::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 3px;
+    }
+    
+    .decorative-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        z-index: -1;
+    }
+    
+    .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+    }
+    
+    .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+    }
+    
+    @media (max-width: 768px) {
+        .about-hero h3 {
+            font-size: 2rem;
+        }
+        
+        .about-section {
+            padding: 1.5rem;
+        }
+        
+        .about-content {
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .about-image-wrapper {
+            margin-bottom: 2rem;
+        }
+    }
+</style>
+
+<div class="container-fluid" style="min-height: 100vh; position: relative;">
+    <div class="decorative-shape shape-1"></div>
+    <div class="decorative-shape shape-2"></div>
+    
+    <div class="about-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h3>About Us</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="about-section">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6 col-12 mb-4 mb-md-0">
+                <div class="about-image-wrapper">
+                    <img src="https://picsum.photos/300/300" alt="About Us">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6 col-12">
+                <div class="about-content">
+                    {{content}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

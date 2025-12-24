@@ -1,0 +1,35 @@
+<header class="container-fluid flex-wrap  sticky-top bg-dark text-white d-flex p-2  justify-content-between ">
+   <div class="">
+    
+       <a href="#" class="text-decoration-none text-white fs-3 fw-bold ">Social</a>
+   </div>
+   <div class="mt-2 d-flex justify-content-start">
+    <ul class="d-flex">
+        {% if user.is_authenticated %}
+        <li class="nav-item fw-bold "><a href="{% url 'app:index' %}" class="btn btn-dark {% if request.path == '/' %} nav-active {% endif %}">Home</a></li>
+        <li class="nav-item fw-bold {% if request.path == '/message/' %} nav-active {% endif %} "><a class="btn btn-dark  position-relative" href="{% url 'app:message_view' %}"><i class="fa-solid fa-envelope"></i>
+            {% if no_of_messages > 0 %}
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">{{no_of_messages}}
+            </span> </a></li>      
+        </a></li>
+        {% endif  %}
+        <li class="nav-item fw-bold "><a href="{% url 'app:search' %}" class="btn btn-dark circle {% if request.path == '/search/' %} nav-active {% endif %}" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></a></li>      
+        <li class="nav-item fw-bold "><a href="{% url 'app:notification' %}" class="btn btn-dark circle position-relative {% if request.path == '/notification/' %} nav-active {% endif %}" ><i class="fa-solid fa-bell"></i>
+            {% if no_of_notification > 0 %}
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">{{no_of_notification}}
+            </span> </a>
+        </li>      
+            {% endif  %}
+        <li class="nav-item fw-bold "><a href="{% url 'app:myaccount' %}" class="btn btn-dark circle {% if request.path == '/myaccount/' %} nav-active {% endif %}" ><i class="fa-solid fa-user "></i></a></li>      
+        <li class="nav-item fw-bold "><a href="{% url 'app:logout' %}" class="btn btn-dark ">Logout</a></li>
+        {% else %}
+        {% if request.path == '/login/' %}
+        <li class="nav-item"><a href="{% url 'app:signup' %}" class="btn btn-dark {% if request.path == '/signup/' %} nav-active {% endif %} ">Signup</a></li>
+        {% else %}
+        <li class="nav-item"><a href="{% url 'app:login' %}" class="btn btn-dark {% if request.path == '/login/' %} nav-active {% endif %} ">Login</a></li>
+        {% endif %}
+        {% endif %}
+       
+    </ul>
+   </div>  
+</header>

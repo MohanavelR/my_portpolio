@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohanavel R - Professional Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.1;
+            color: #000;
+            background: #f0f0f0;
+            font-size: 9pt;
+        }
+
+        .container {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            padding: 10mm 9mm;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4pt;
+            border-bottom: 2.5px solid #000;
+            padding-bottom: 4pt;
+        }
+
+        .header h1 {
+            font-size: 20pt;
+            font-weight: bold;
+            margin-bottom: 2pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header .title {
+            font-size: 11pt;
+            font-weight: 600;
+            margin-bottom: 2pt;
+        }
+
+        .contact-info {
+            font-size: 8.5pt;
+            line-height: 1.2;
+        }
+
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 6pt;
+        }
+
+        .section-title {
+            font-size: 10pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1.8px solid #000;
+            margin-bottom: 3pt;
+            padding-bottom: 1pt;
+            letter-spacing: 0.4px;
+        }
+
+        .section-content {
+            font-size: 9pt;
+            line-height: 1.15;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1pt;
+            margin-top: 2pt;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 9.5pt;
+        }
+
+        .job-date {
+            font-style: italic;
+            font-size: 8.5pt;
+        }
+
+        .company {
+            font-style: italic;
+            font-size: 8.5pt;
+            margin-bottom: 1.5pt;
+        }
+
+        ul {
+            margin-left: 14pt;
+            margin-top: 1pt;
+            margin-bottom: 1pt;
+        }
+
+        li {
+            margin-bottom: 1pt;
+            font-size: 9pt;
+            line-height: 1.15;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2pt;
+        }
+
+        .skill-item {
+            font-size: 9pt;
+            line-height: 1.2;
+        }
+
+        .skill-label {
+            font-weight: bold;
+            font-size: 9pt;
+        }
+
+        .education-item {
+            margin-bottom: 2pt;
+            font-size: 9pt;
+            line-height: 1.2;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5pt 8pt;
+            margin-top: 2pt;
+        }
+
+        .project {
+            break-inside: avoid;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 9pt;
+            margin-bottom: 1pt;
+        }
+
+        .project-tech {
+            font-style: italic;
+            font-size: 8pt;
+            margin-bottom: 1pt;
+            color: #333;
+        }
+
+        .project-desc {
+            font-size: 8.5pt;
+            line-height: 1.15;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 10mm 9mm;
+                box-shadow: none;
+            }
+
+            .download-btn,button {
+                display: none;
+            }
+
+            .section, .project {
+                page-break-inside: avoid;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13pt;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="window.print()">📥 Download PDF</button>
+ <button  style="margin-top: 60px; position: fixed; left: 20px; top: 20px;padding: 10px 20px; border-radius: 5px; cursor: pointer; " class="" onclick="window.print()">Print</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>MOHANAVEL R</h1>
+            <div class="title">Full Stack Developer</div>
+            <div class="contact-info">
+                <a href="mailto:rmohanavel2003@gmail.com">rmohanavel2003@gmail.com</a> | <a href="tel:+917397543180">+91 73975 43180</a> | <a href="https://myportfolio-mohan.netlify.app/" target="_blank">Portfolio</a> | <a href="https://github.com/MohanavelR" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/r-mohanavel-mohanavel-437508233" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <div class="section-content">
+                Results-driven Full Stack Developer with strong expertise in Python (Django, Flask, FastAPI) and JavaScript (MERN Stack), experienced in building, deploying, and maintaining scalable web applications. Delivered 10+ end-to-end projects with hands-on experience in RESTful API development, database design and optimization, authentication, and responsive UI implementation. Certified Full Stack Developer with six months of full-time, real-world experience contributing to live, production-grade client projects. Recognized for clean code practices, rapid adaptability, and a strong focus on performance, scalability, and modern development standards.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+            <div class="section-content">
+                <div class="job-header">
+                    <span class="job-title">Full-Time Web Developer Intern</span>
+                    <span class="job-date">Current</span>
+                </div>
+                <div class="company">Webnique Digital Solutions, Bengaluru</div>
+                <ul>
+                    <li>Delivered 4+ production-ready client applications supporting 1,500+ users, including Car-Fit, Cell World, Electricity Services, and Restaurant management systems.</li>
+                    <li>Designed and implemented full-stack functionality using React.js, Node.js/Express.js, MongoDB/MySQL, JWT authentication, and responsive HTML/CSS UI, improving load times by approximately 35%.</li>
+                    <li>Developed reusable React components, robust form validation, API integration with Axios, and ensured consistent mobile-first performance across all devices.</li>
+                    <li>Collaborated in Agile team environment with code reviews, Git version control, and production debugging to maintain code quality standards.</li>
+                    <li>Optimized application performance using lazy loading, code splitting, image compression, caching strategies, and database indexing techniques.</li>
+                </ul>
+
+                <div class="job-header">
+                    <span class="job-title">Full Stack Web Development Course</span>
+                    <span class="job-date">Completed</span>
+                </div>
+                <div class="company">FalconX EdTech Solutions Pvt Ltd, Coimbatore</div>
+                <ul>
+                    <li>Completed comprehensive MERN stack certification covering HTML5, CSS3, JavaScript ES6+, React.js, Node.js, Express.js, and MongoDB with hands-on projects.</li>
+                    <li>Built 5+ full-stack applications from scratch, gaining practical experience in responsive design, API integration, user authentication, and database management.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="education-header">
+                        <span><strong>B.E. Computer Science</strong> - J.K.K.N College of Engineering, Komarapalayam</span>
+                        <span>2020-2024 | 7.5 CGPA</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <span><strong>HSC</strong> - Govt. Higher Secondary School, Chettipatty (65%) | <strong>SSLC</strong> - Govt. HSS, Kullampatty (80%)</span>
+                        <span>2020 | 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Key Projects</div>
+            <div class="section-content">
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-title">WB Root - Invoice & Quotation System</div>
+                        <div class="project-tech">React.js, FastAPI, PostgreSQL, PDF Generation</div>
+                        <div class="project-desc">Professional invoicing system with automated PDF generation, client management, itemized billing, tax calculations, payment tracking, quotation-to-invoice conversion, and RESTful API with PostgreSQL optimization.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">E-commerce Platform (MERN Stack)</div>
+                        <div class="project-tech">MongoDB, Express.js, React.js, Node.js, Tailwind CSS, Stripe</div>
+                        <div class="project-desc">Full-stack e-commerce with 300+ products, JWT authentication, admin dashboard, shopping cart, Stripe payments, 20+ REST APIs, order tracking, email notifications, and analytics dashboard.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">E-commerce Web Application (Django)</div>
+                        <div class="project-tech">Python, Django, MySQL, Bootstrap, PayPal</div>
+                        <div class="project-desc">Django e-commerce platform with product management, user authentication, session cart, PayPal integration, product reviews, wishlist, inventory tracking, and admin panel.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">Social Media App (Instagram Clone)</div>
+                        <div class="project-tech">Django, MySQL, Bootstrap, AWS S3, AJAX</div>
+                        <div class="project-desc">Social networking app with user profiles, AWS S3 image uploads, real-time likes/comments with AJAX, follow system, feeds, notifications, infinite scrolling, and responsive design.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">Blog Management System</div>
+                        <div class="project-tech">Python, Django, MySQL, Bootstrap, TinyMCE</div>
+                        <div class="project-desc">Blog platform with post CRUD, nested comments, authentication, role-based access, category/tag management, SEO optimization, pagination, and content moderation.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">PWD Learning Platform</div>
+                        <div class="project-tech">Python, Flask, MySQL, Bootstrap, Chart.js</div>
+                        <div class="project-desc">Accessible learning platform for persons with disabilities featuring progress tracking, quizzes, achievements, personalized paths, WCAG compliance, keyboard navigation, and screen reader support.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">Personal Portfolio Website</div>
+                        <div class="project-tech">HTML5, CSS3, JavaScript ES6, EmailJS</div>
+                        <div class="project-desc">Single-page portfolio with responsive layout, interactive animations, EmailJS contact form, performance optimization, and cross-browser compatibility.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">Client Projects (Professional Internship)</div>
+                        <div class="project-tech">Html,Css,Js,Bootstrap</div>
+                        <div class="project-desc">Developed static, responsive landing pages for live client websites including Carfit , CakeBake Restaurant, and CellWorld. Focused on modern UI design, structured layouts, reusable React components, and responsive design to ensure cross-browser and multi-device compatibility.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="section-content skills-grid">
+                <div class="skill-item"><span class="skill-label">Frontend:</span> HTML5, CSS3, JavaScript (ES6+), React.js (Hooks, Context API, Redux), AntD, Bootstrap, Tailwind CSS, Responsive Design, Mobile-First Development</div>
+                <div class="skill-item"><span class="skill-label">Backend:</span> Node.js, Express.js, Python (Django, Flask, FastAPI), RESTful APIs, Authentication & Authorization, Session Management, JWT Tokens</div>
+                <div class="skill-item"><span class="skill-label">Database:</span> MongoDB , MySQL, PostgreSQL, Database Design,</div>
+                <div class="skill-item"><span class="skill-label">Tools:</span>Cloudinary, Git, GitHub, VS Code, Postman, Axios | <span class="skill-label">Soft Skills:</span> Problem Solving, Critical Thinking, Team Collaboration</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.download-btn').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body{
+    background-color: #141212 !important;
+}
+.btn_div .btn{
+   background-color: rgb(39, 35, 35);
+   color: rgb(140, 156, 156);
+   border: 1px solid rgb(145, 138, 138) ;
+}
+.btn_div .btn:hover{
+    color: rgb(25, 255, 255);  
+    transform: scale(1.09); 
+}
+.btn_div .btn:active{
+    color: rgb(25, 255, 255);  
+    transform: scale(.99); 
+}
+.login-div .rounded{
+    border: 1px solid rgb(145, 138, 138) ;
+    
+}
+.task-div:hover{
+    transform: scale(1.03);
+    background-color: black !important;
+
+
+}
+.time-date{
+    opacity: 0.5;
+}
+.navbar .navbar-nav .nav-item:hover{
+    /* border: 1px solid rgb(145, 138, 138) ; */
+    border-radius: 10px;
+    background-color: black;
+}
+.rounded #hide{
+    transition: all 2s ease;
+}
+

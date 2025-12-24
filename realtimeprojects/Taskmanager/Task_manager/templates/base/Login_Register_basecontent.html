@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{head}} | Task </title>
+    <link rel="stylesheet" href="{%  static 'css/style.css' %}">
+    <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+    <div class="container d-flex flex-column justify-content-center  login-div align-items-center  mt-5 text-white ">
+        {% if messages %}
+           {% for message in messages %}
+         <div class=" col-5  text-white rounded  bg-danger" id="hide" style="transition: all 2s ease;">
+           <p class=" text-center">{{ message }}</p>
+         </div>
+         {% endfor %}
+         {% endif %}
+        {% block content %}
+        {% endblock %}
+   </div>
+<script src="{% static 'js/hide.js'%}"></script>
+<script src="{% static 'bootstrap.bundle.min.js'%}"></script> 
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+<!-- Field Error -->
+<div  id="messages" class="d-flex messages mt-3 justify-content-center col-12" style="position: absolute;">
+    <div class=" bg-danger messages-box col-8  col-lg-4">
+{% for field in form %}
+       <!-- {{field.label_tag}} -->
+    {%if field.errors%}
+            {% for error in field.errors %}
+            <p class="text-center p-1 fw-3 text-white">{{field.label_tag}}{{error}}</p>
+            {% endfor %}
+            {% endif %}    
+            {% endfor %}
+        </div>
+    </div>
+<!-- Field Error end  -->
+<!-- Non Field Error -->
+<div class="d-flex messages mt-3 justify-content-center col-12" style="position: absolute;">
+    {% for error in form.non_field_errors %}
+    {% if error%}
+    <div class="messages-box bg-danger  col-8 col-sm-6 col-lg-4">
+        <p class="text-center fw-3 text-white">{{error}}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<!-- Non Field Error end -->
+
+<!-- field error -->
+
+<!-- {% for field in form %}
+{% if field.errors%}
+<div class="messages d-flex  mt-3 justify-content-center col-12">
+    <div class="col-12 messages-box p-3 text-center error text-white bg-danger">
+        <span>
+            {{field.label_tag}}
+        </span>
+        {% for err in field.errors %}
+        <span class="">{{err}}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endfor %} -->
+<!-- Non field error -->
+<!-- {% for err in form.non_field_errors%}
+<div class="bg-danger p-2 error">
+    <span class="text-center text-white">{{err}}</span>
+</div>
+{% endfor %} -->
+<!-- success message  -->
+<!-- {% if messages %}
+{% for message in messages %}
+<div class=" bg-success  p-2 rounded success text-center text-white">
+    <p class="">{{ message }}</p>
+</div>
+{%endfor %}
+{% endif %} -->
+
+<script>
+    let message_box=document.querySelectorAll('.messages-box')
+    setTimeout(()=>{
+     message_box.forEach(element => {     
+       element.style.display='none'
+     });
+   },4000)
+// setTimeout(()=>{
+//     message_box.style.display='none'
+// },3000)
+</script>

@@ -1,0 +1,195 @@
+{% extends 'base/base.html'%} 
+{% load static %} 
+{% block title %} 
+My Account 
+{% endblock %}
+{% block content %}
+<!-- =======================Main Content==============================  -->
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center">
+        <!-- =======================section Header===============  -->
+        <div class="card-body">
+         <!--========= Check Image Url========= -->
+          {% if data.url %}
+          <img src="{{data.url}}" class="profile-img mb-3" alt="Profile" />
+          {% else %}
+          <img
+            src="{% static 'images/default_profile.png' %}"
+            class="profile-img mb-3"
+            alt="Profile"
+          />
+          {% endif %}
+          <!--============== Check image End================= -->
+          <h6 class="card-title">
+            {{data.first_name | upper }}{{data.last_name | upper }}
+          </h6>
+          <p class="text-muted">{{data.email}}</p>
+        </div>
+        <!-- =================== section Header end =============  -->
+      </div>
+      <!-- ==================section Link=====================  -->
+      <div class="list-group mt-4">
+        <a
+          href="#profile"
+          class="list-group-item list-group-item-action active"
+          data-bs-toggle="tab"
+          >Profile</a
+        >
+        <a
+          href="#orders"
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="tab"
+          >Orders</a
+        >
+        <a
+          href="#settings"
+          class="list-group-item list-group-item-action"
+          data-bs-toggle="tab"
+          >Settings</a
+        >
+      </div>
+      <!-- =================section Link end========================  -->
+    </div>
+    <!-- ================section Information====================  -->
+    <div class="col-md-9">
+      <div class="tab-content">
+        <!--================== Profile Tab ================== -->
+        <div class="tab-pane fade show active" id="profile">
+          <div class="card">
+            <div class="card-header">Profile Information</div>
+            <div class="card-body">
+              <p><strong>Name:</strong> {{data.first_name | default:'' }}</p>
+              <p><strong>Email:</strong> {{data.email | default:''}}</p>
+              <p>
+                <strong>Phone:</strong> +91 {{data.phone_number | default:'' }}
+              </p>
+              <p><strong>Address:</strong> {{data.address | default:''}}</p>
+            </div>
+          </div>
+        </div>
+
+        <!--=================== Orders Tab================== -->
+        <div class="tab-pane fade" id="orders">
+          <div class="card">
+            <div class="card-header">Order History</div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% if products %} {% for product in products %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{product.order_at | date:"F j Y" }}</td>
+                    {% if product.is_delivered %}
+                    <td><span class="badge bg-success">Delivered</span></td>
+                    {% else %}
+                    <td><span class="badge bg-warning"> Process</span></td>
+                    {% endif %}
+                    <td>$ {{product.price}}</td>
+                  </tr>
+
+                  {% endfor %} {% else %}
+                  <p class="text-secondary">No Orders</p>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================Settings Tab================ -->
+        <div class="tab-pane mt-1 fade" id="settings">
+          <div class="card">
+            <div class="card-header">Account Settings</div>
+            <div class="card-body">
+              <form
+                class=""
+                enctype="multipart/form-data"
+                autocomplete="off"
+                method="post"
+              >
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label class="form-label">First Name</label>
+                  <input
+                    name="first_name"
+                    value="{{data.first_name | default:''}}"
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Last Name</label>
+                  <input
+                    name="last_name"
+                    value="{{data.last_name | default:''}}"
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"> Email</label>
+                  <input
+                    name="email"
+                    value="{{data.email | default:''}}"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter new email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Phone</label>
+                  <input
+                    name="phone_number"
+                    value="{{data.phone_number | default:''}}"
+                    type="text"
+                    class="form-control"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Profile Image</label>
+                  <input
+                    name="img_url"
+                    value="{{data.url.url}}"
+                    type="file"
+                    class="form-control"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Address</label>
+                  <textarea
+                    value="{{data.address | default:''}}"
+                    class="form-control"
+                    name="address"
+                    id=""
+                  >
+{{data.address}}</textarea
+                  >
+                </div>
+                <button type="submit" class="btn btn-danger">
+                  Update Settings
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ==================section Information end=================   -->
+  </div>
+</div>
+<!-- ==============Main Content=============================== -->
+{% endblock %}

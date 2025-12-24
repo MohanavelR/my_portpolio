@@ -1,0 +1,256 @@
+{% extends "base/base.html" %}
+{% block title %}
+Edit Post
+{% endblock %}
+{% block contant %}
+<style>
+    .edit-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 3rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 50px 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .edit-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+        background-size: cover;
+        opacity: 0.3;
+    }
+    
+    .edit-hero h3 {
+        color: white;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .edit-hero h3::before {
+        content: '✏️';
+        font-size: 2.5rem;
+    }
+    
+    .edit-form-container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .edit-form-wrapper {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .edit-form-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .form-label::before {
+        content: '•';
+        color: #667eea;
+        font-size: 1.5rem;
+    }
+    
+    .form-control,
+    .form-control-file {
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+    
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        outline: none;
+    }
+    
+    .form-control:hover {
+        border-color: #cbd5e0;
+    }
+    
+    textarea.form-control {
+        resize: vertical;
+        min-height: 150px;
+    }
+    
+    .form-control-file {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background: #f7fafc;
+        cursor: pointer;
+    }
+    
+    .form-control-file:hover {
+        background: #edf2f7;
+        border-color: #667eea;
+    }
+    
+    select.form-control {
+        cursor: pointer;
+        background: white;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 2.5rem;
+    }
+    
+    .btn-submit {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 50px;
+        padding: 0.875rem 3rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        color: white;
+    }
+    
+    .btn-submit:active {
+        transform: translateY(-1px);
+    }
+    
+    .decorative-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        z-index: -1;
+    }
+    
+    .shape-1 {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        right: -200px;
+    }
+    
+    .shape-2 {
+        width: 300px;
+        height: 300px;
+        bottom: -150px;
+        left: -150px;
+    }
+    
+    @media (max-width: 768px) {
+        .edit-hero h3 {
+            font-size: 2rem;
+        }
+        
+        .edit-form-wrapper {
+            padding: 2rem 1.5rem;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 0.75rem 2rem;
+        }
+    }
+</style>
+
+<div class="container-fluid" style="min-height: 100vh; position: relative;">
+    <div class="decorative-shape shape-1"></div>
+    <div class="decorative-shape shape-2"></div>
+    
+    <div class="edit-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h3>Edit Post</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="edit-form-container">
+        <div class="edit-form-wrapper">
+            <!-- Error messages -->
+            <!-- start Messages -->
+            {% include 'includes/errors.html'%} 
+            <!-- End Messages -->
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" value="{{post.title}}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" name="content">{{post.content}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="img_url" class="form-label">Image</label>
+                    <input type="file" class="form-control-file" id="img_url" name="img_url">
+                </div>
+                
+                <div class="form-group">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-control" id="category" name="category" value="{{post.category}}">
+                        <option value="">Select Category</option>
+                        {% if category %}
+                        {% for categorys in category %}
+                        <option {% if post.category.id == categorys.id %} selected {% endif %} value="{{categorys.id}}">{{categorys.name}}</option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="submit" class="btn btn-submit">Update Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

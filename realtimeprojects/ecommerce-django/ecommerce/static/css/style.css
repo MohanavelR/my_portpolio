@@ -1,0 +1,171 @@
+body{
+    background-color: rgb(205, 218, 231) !important;
+}
+.navbar .navbar-brand{
+    font-weight: 700;
+}
+
+  .custom-carousel-height {
+    max-height: 80vh !important; /* or whatever height you want */
+  }
+  
+.custom-carousel-height .carousel-item,
+  .custom-carousel-height .carousel-item img {
+    height: 100%;
+    object-fit: cover; 
+  }
+  .navbar-nav .nav-item{
+    border-radius: 5px;
+  }
+.navbar-nav .nav-item .nav-link{
+  color: rgb(255, 255, 255) !important;
+  
+}  
+.navbar-nav .active {  
+  font-weight: 800;
+  transform: scale(1.02);
+  border-bottom: 1px solid rgb(255, 255, 255) !important;
+  border-top: 1px solid rgb(255, 255, 255) !important;
+  border-radius: 5px;
+  /* background-color: rgb(16, 16, 16); */
+  /* box-shadow: 0px 0px 5px white; */
+}
+.navbar-nav a:hover{
+  background-color: black;
+  color: aqua;
+  border-radius: 3px;
+  /* font-weight: 600; */
+  
+  /* transform: scale(1.01); */
+  transition: all .2s ease;
+}
+
+
+.custom-card{
+  position: relative !important;
+}
+.custom-card .card-img-top{
+  max-height:200px !important;
+}
+.custom-badge {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
+.custom-card-details{
+  /* width: 50% !important; */
+  display: flex;
+
+}
+.custom-detail-img{
+  width: 60%;
+}
+.custom-detail-img img{
+   /* min-height: 100% !important; */
+   object-fit: cover !important;
+}
+.d-flex.col-11.col-md-8.bg-white.custom-card-order{
+  border-bottom: 2px solid rgb(120, 112, 112) !important;
+  /* background-color: rgb(14, 167, 167) !important; */
+}
+.order-container:first-child{
+  border-top-left-radius:5px !important;
+  border-top-right-radius:5px !important ;
+}
+/* .custom-add-btn{
+  top: 80% !important;
+  left: 80% !important;
+} */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.custom-show-product-btn{
+  top: 80% !important;
+  left: 60% !important;
+  right: 1% !important;
+  z-index: 20 !important;
+}
+
+/* Login */
+.login-container{
+  height: 80vh;
+  
+}
+
+.login-container .custom-login-form{
+   border-radius: 10px;
+   border: 1px solid rgb(223, 196, 196);
+   box-shadow: 0 0 20px rgb(183, 180, 173);
+   background-color: rgb(242, 242, 247);
+}
+.login-container .custom-login-form label{
+  font-weight: 600;
+}
+.login-container .custom-login-form input{
+  border-radius: 5px;
+  outline: none;
+  border-width: 1px ;
+  border-color: rgb(81, 120, 109);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  
+}
+/* Register */
+.register-container{
+  height: 80vh;
+ 
+  
+}
+.register-container .custom-register-form{
+   border-radius: 10px;
+   border: 1px solid rgb(223, 196, 196);
+   box-shadow: 0 0 20px rgb(183, 180, 173);
+   background-color: rgb(242, 242, 247);
+}
+.register-container .custom-register-form label{
+  font-weight: 600;
+}
+.register-container .custom-register-form input{
+  border-radius: 5px;
+  outline: none;
+  border-width: 1px ;
+  border-color: rgb(81, 120, 109);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+.messages{
+  position: absolute !important;
+  /* display: fl; */
+
+}
+.messages .messages-box{
+  border-radius: 5px;
+  align-items: center;
+  /* padding: 5px; */
+  /* opacity: 0; */
+  /* transform: translateY(-120px); */
+  animation: move 1s linear  ;
+}
+@keyframes move{
+  0%{
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+  50%{
+    opacity: .5;
+    transform: translateY(-50px);
+  }
+  80%{
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

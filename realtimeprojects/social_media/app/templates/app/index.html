@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+{% block title %}
+Index
+{% endblock %}
+{% block content %}
+<!-- Main content  -->
+<div class="container py-4">
+    <div class="row justify-content-center ">
+      <div class="col-md-6">
+        {% for post in posts %}
+        <div class="post-card bg-white {{post.pk}}" id="post-{{post.pk}}">
+          <!-- Header -->
+          <div class="d-flex align-items-center justify-content-between p-3">
+            <div class="d-flex align-items-center">
+              <a href="{% url 'app:profile' slug=post.profile_slug %}">
+                <img src="{{post.img_url}}" class="profile-img me-2" alt="User Profile" />
+              </a>
+              <a class="text-decoration-none text-dark" href="{% url 'app:profile' slug=post.profile_slug %}"><strong>@ {{post.user}}</strong></a>
+            </div>
+            
+            {% if post.is_following %}
+            <a href="{% url 'app:follow' slug=post.profile_slug path=request.path  %}#post-{{ post.id }} " class="btn text-white fw-bold un-follow">Following</a>
+            
+            {% else %}
+            <a href="{% url 'app:follow' slug=post.profile_slug path=request.path %}#post-{{ post.id }}" class="btn text-white fw-bold  btn-primary">Follow</a>
+            {% endif %} 
+
+          </div>
+          <!-- Post Image -->
+        <img src="{{post.image.url}}" class="post-img" alt="Post Image" />
+  
+          <!-- Actions -->
+          <div class="d-flex justify-content-between px-3 pt-2">
+            <div>
+              {% if post.is_liked %}
+               <a href="{% url 'app:like_post' slug=post.slug  %}#post-{{ post.id }}" ><i class="fa-solid fa-heart fs-5 text-danger"></i></a>
+              {% else %}
+              <a href="{% url 'app:like_post' slug=post.slug  %}#post-{{ post.id }}" class="icon-btn"><i class="fa-regular text-danger fs-5 fa-heart"></i></a>
+              {% endif %}
+              <!-- Model -->
+               {% include 'include/comment.html' %}
+              <!--  Model -->
+              <button type="button" class="icon-btn" onclick="set_value(`{{post.slug}}`)"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="far fa-comment"></i> {{post.no_of_comments}}
+            </button>
+              <!-- <button class="icon-btn"><i class="far fa-comment"></i>  </button> -->
+              <!-- <button class="icon-btn"><i class="far fa-paper-plane"></i></button> -->
+            </div>
+            {% if post.is_fav %}
+            <a href="{% url 'app:add_fav' slug=post.slug %}" class="icon-btn"><i class="fa-solid text-dark fa-bookmark"></i></a>
+            {% else %}
+            <a href="{% url 'app:add_fav' slug=post.slug %}" class="icon-btn"><i class="far text-dark fa-bookmark "></i></a>
+            {% endif %}
+          </div>
+  
+          <!-- Likes and Caption -->
+          <div class="px-3 pb-2">
+            {% if post.no_of_likes > 1 %}
+            <strong>{{post.no_of_likes }} likes</strong>
+            {% else %}
+            <strong>{{post.no_of_likes }} like</strong>
+            {% endif %}
+            <p class="caption mb-1"><strong>{{post.user}}</strong> {{post.caption}} 😊</p>
+            <small class="text-muted">2 hours ago</small>
+          </div>
+          <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                      <a class="accordion-button text-decoration-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}"
+                          aria-expanded="true" aria-controls="collapseOne">
+                          Read Comments
+                      </a>
+                  </h2>
+                  <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse " aria-labelledby="headingOne"
+              >
+                      <div class="accordion-body">
+                          {% if post.comments %}
+                            {% for comment in post.comments %}
+                             <div class="col-12  gap-4">
+                              {% if comment.is_your_comment %}
+                              <strong class="d-flex justify-content-between">
+                                <a class=""  href="{% url 'app:myaccount' %}" >{{comment.comment_user}}:</a>
+                                <a  href="{% url 'app:delete_comment' slug=comment.slug %}">
+                                  <i class="fa-solid fa-trash"></i>
+                                </a>
+                              </strong>
+                              <p class="ms-4"> {{comment.comment}}</p>
+                              {% else %}   
+                              <strong>
+                                <a class=""  href="{% url 'app:profile' slug=comment.profile_slug %}">{{comment.comment_user}} :</a>
+                              </strong>
+                              <p class="ms-4"> {{comment.comment}}</p>
+                              {% endif  %}
+                             </div>
+                             <hr>
+                            
+                             {% endfor %}
+                          {% else %}   
+                          <p class="text-secondary text-center fw-bold fs-2">No comments</p>
+                          {% endif %}                       
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div>
+    
+    </div>
+  </div>
+
+<!-- End Main content  -->
+<script>
+  // Save scroll position before leaving
+  window.addEventListener('beforeunload', function () {
+    localStorage.setItem('scrollY', window.scrollY);
+  });
+</script>
+
+{% endblock %}

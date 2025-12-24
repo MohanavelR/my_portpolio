@@ -1,0 +1,19 @@
+{% extends 'base/Base_content.html'%}
+{% block content %}    
+ <div class="container text-white mt-5 gap-5">
+   <div class="row d-flex justify-content-center   align-items-center col-12 ">
+      <div style="border: 1px solid rgb(145, 138, 138) ;" class="col-12 text-center col-md-4 task-1 task-div p-3 bg-dark m-3 rounded  ">
+           <h4 class="">Total Tasks</h4>
+           <p>Count : {{data}}</p>
+      </div>
+      <div style="border: 1px solid rgb(145, 138, 138) ;" class="col-12 col-md-4 text-center task-2 task-div  p-3 bg-dark rounded ms-1 ">
+          <h4 class="text-center">Completed Tasks</h4>
+          <p>Count : {{completed}}</p>
+      </div>
+      <div style="border: 1px solid rgb(145, 138, 138) ;" class="col-12 col-md-4  text-center task-3 task-div p-3 bg-dark rounded ">
+          <h4 class="text-center">Pending Tasks</h4>
+          <p>Count : {{Pen_count}}</p>
+      </div>
+   </div>
+ </div>
+{% endblock %}

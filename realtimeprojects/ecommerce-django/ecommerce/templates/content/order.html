@@ -1,0 +1,83 @@
+{% extends "base/base.html"%}
+{% block title %}
+Order
+{% endblock %}
+<style>
+    /* body{
+        background-color: aqua;
+    } */
+</style>
+{% block content %}
+<!-- ======= Main content ========== -->
+<h1 class="m-3">MY ORDER</h1>
+<!-- ==========My order section============ -->
+{% if products %}
+<div class="align-items-center order-container  flex-column d-flex">
+    {% for product in products %}
+    <div class="d-flex col-11 col-md-8 p-3 bg-white  custom-card-order">
+        <div class="col-3 p-2">
+            <img src="{{product.formatting_url}}" class="card-img-top rounded" alt="..." />
+        </div>
+        <div class="p-2 col-8 ms-1 ">
+            <div class="col-12 d-flex justify-content-between ">
+                <h5 class="card-title ">{{product.product_name| upper}}</h5>
+                {% if product.is_delivered %}
+                <h5 class="custom-badge-head"><span class="badge bg-primary">Completed</span></h5>
+                {% else %}
+                <h5 class="custom-badge-head"><span class="badge bg-warning">in process</span></h5>
+                {% endif %}
+            </div>
+            <span style="margin: 0;" class="h6">Ordered Date : </span> <span>{{product.order_at | date:"F j Y" }}</span>
+            <div class="col-12 d-flex justify-content-between flex-wrap">
+                <div>
+                    <span style="margin:0;" class="h6"> Price : </span> <span>${{product.price}}</span>
+                </div>
+                {% if product.quantity > 1 %}
+                <div>
+
+                    <span style="margin:0;" class="h6">Quantity : </span> <span>{{product.quantity}} items</span>
+                </div>
+                {% else %}
+                <div>
+
+                    <span style="margin:0;" class="h6">Quantity : </span> <span> {{product.quantity}} item</span>
+                </div>
+
+                {% endif %}
+                <div>
+                    <span style="margin:0;" class="h6">Delivery : </span><span>${{product.delivery}}</span>
+                </div>
+            </div>
+            <div>
+                <span class="h6">Offer : </span> <span>{{product.offer}}%</span>
+            </div>
+            <div>
+                <span class="h6">Delivery on : </span> <span>{{product.on_delivery}}</span>
+            </div>
+            <div class=" d-flex justify-content-center">
+                {% if product.is_delivered %}
+                <button disabled href="" class="btn btn-success">Delivered</button>
+                {% else %}
+                <button onclick="Order_cancel(`{% url 'ecommerce:delete_order' slug=product.order_slug %}`)"
+                    class="btn btn-success">Order Cancel</button>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="h4 text-secondary text-center mt-3">No Orders.</p>
+{% endif %}
+<!-- ===============My order section end============== -->
+<script>
+    function Order_cancel(url) {
+        let conf = confirm('Are Sure to Order cancelled')
+        if (conf) {
+            window.location.href = url
+        }
+
+    }
+</script>
+{% endblock %}

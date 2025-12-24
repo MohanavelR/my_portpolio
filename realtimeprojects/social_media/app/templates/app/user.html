@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %}
+{% block title %}
+My Account
+{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <!-- Top Profile Info -->
+ <a href="{% url 'app:add_post' %}" class="btn btn-success add-btn ">Add Post</a> 
+    <div class="row mb-4 justify-content-center col-12">
+      <div class="text-end">
+        <a class="text-decoration-none fw-bold" href="{% url 'app:saved_posts' %}"><i class="fa-solid me-2 text-dark fa-bookmark"></i>Saved</a>
+      </div>
+      <div class="col-md-4 col-3  profile-img-custom text-center">
+        <img src="{{profile.formatting_url}}" alt="Profile Pic" class="profile-img-custom me-4" />
+      </div>
+      <div class="col-md-8 col-12">
+        <div class=" col-12  mb-3">
+          <span class="username fw-bold fs-3 text-center d-flex justify-content-center me-3">@{{user}}</span>
+        </div>
+   <!-- Follow Model -->
+    {% include 'include/follower.html' %}
+   <!-- Follow Model -->
+        <div class="d-flex col-12 fw-medium fs-5 justify-content-around mb-2">
+          <div class="me-4 profile-stats">
+            <h6 class="text-center">{{no_of_posts}}</h6>
+            {% if no_of_posts > 1 %}
+            <p>Posts</p>
+            {% else %}
+            <p>Post</p>
+            {% endif %}
+          </div>
+          <div class="me-4 profile-stats">
+            <h6 class="text-center">{{follower_length}}</h6>
+            {% if follower_length > 1  %}
+            <p><a type="button" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#follower">
+              Followers
+          </a></p>
+          {% else %}
+            <p><a type="button" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#follower">
+              Follower
+          </a></p>
+          {% endif %}
+          </div>
+          <div  class="profile-stats">
+            <h6 class="text-center" >{{following_length}}</h6>
+            <p><a type="button" class="text-decoration-none " data-bs-toggle="modal" data-bs-target="#following">
+              Following
+          </a></p>
+          </div>
+        </div>
+        <div class="col-12 d-flex flex-column gap-3 align-items-center">
+          <strong>{{user.first_name}}</strong>
+          <p class="mb-0">{{profile.bio}}</p>
+        </div>
+       
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center ">
+      <a class="btn rounded mb-3 col-sm-7 col-md-5 col-12 btn-outline-primary btn-sm me-2" href="{% url 'app:edit_profile'%}">Edit Profile <i class="fa-solid ms-2 fa-gear fa-lg"></i></a>
+    </div>
+    <!-- Tabs -->
+    <ul class="nav nav-tabs justify-content-center border-top border-bottom mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#"><i class="fa-solid fa-table-cells tab-icon me-1"></i>Posts</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fa-solid fa-clapperboard tab-icon me-1"></i>Reels</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fa-solid fa-user-tag tab-icon me-1"></i>Tagged</a>
+      </li> -->
+    </ul>
+  
+    <!-- Post Grid -->
+  <div class="row g-1 ">
+   {% if posts %}
+      {% for post in posts  %}
+      <div class="col-4 shadow-lg">
+        <div class="text-end">
+          <img src="{{ post.image.url }}" class="post-img-custom" alt="Post Image" />
+          <div onclick="delete_post(`{% url 'app:delete_post' slug=post.slug %}`)"  class="fs-3 p-2 delete text-decoration-none ">
+            <i class="fa-solid text-danger fa-trash"></i>
+          </div>
+      </div>
+    </div>
+      {% endfor %}
+     {% else %}  
+      <div class="text-center text-muted mt-5">
+        <p class="text-secondary text-center fw-bold fs-2" >No posts yet.</p>
+      </div>
+     {% endif %}
+  </div>
+  <script>
+    function delete_post(url){
+      let delete_post=confirm('Are conform Delete Your Post ?')
+      if (delete_post){
+        window.location.href=url
+      }
+    }
+  </script>
+  {% endblock %}

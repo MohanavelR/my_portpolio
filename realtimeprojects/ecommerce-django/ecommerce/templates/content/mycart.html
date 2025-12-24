@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% block title  %}
+My Cart
+{% endblock %}
+{% block content %}
+<!-- ========Main Content============= -->
+<h1 class="m-3">MY CART</h1>
+{% if products %}
+<!-- =============Fav Product section============= -->
+{% include 'includes/card.html'%}
+<!-- =============Fav Product section end ============= -->
+{% else %}
+ <p class="h4 text-secondary text-center mt-3">No products.</p>
+{% endif %}
+<!--===================== Main content end================= -->
+{% endblock %}

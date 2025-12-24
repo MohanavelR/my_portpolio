@@ -1,0 +1,99 @@
+
+<!-- Modal -->
+<div class="modal fade" id="follower" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Follower</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- ---- -->
+            <div class="modal-body">
+                {% if followers %}
+                {% for follower in followers  %}
+                <div  class="d-flex justify-content-between">
+                    <a href="{% url 'app:profile' slug=follower.slug %}">
+
+                        <img src="{{follower.img}}" class="profile-img col-3 me-2" alt="User Profile" />
+                    </a>
+                    <a  href="{% url 'app:profile' slug=follower.slug %}">
+                        <p class="mt-2 col-6 ms-4 ">{{follower.user}}</p>
+                    </a>
+                    <div class="col-3">
+                        {% if follower.is_followed %}
+                        <a href="{% url 'app:follow' slug=follower.slug path=request.path  %}" class="btn col-12 un-follow btn-primary">following</a>
+                        {% else %}
+                        <a href="{% url 'app:follow' slug=follower.slug path=request.path  %}" class="btn col-12 btn-primary">follow</a>
+                        {% endif %}
+                    </div>
+                </div>
+              <hr>
+                {% endfor %}
+                {% else %}
+        
+                <p class="text-secondary text-center fw-bold fs-2" >No Follower</p>
+                {% endif %}
+                <div class="col-12">
+                 
+                </div>
+            </div>
+           <!-- -- -->
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="following" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Following</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if following %}
+                {% for follow in following  %}
+                <div class="d-flex justify-content-between">
+                    <a class="col-3"  href="{% url 'app:profile' slug=follow.slug %}" >
+                        <img src="{{follow.img}}" class="profile-img col-3 me-2" alt="User Profile" />
+                    </a>
+                    <a  href="{% url 'app:profile' slug=follow.slug %}">
+                        <p class="mt-2 col-6 ms-4 ">{{follow.following | title }}</p>
+                    </a>
+                    <div class="col-3">
+                        <a href="{% url 'app:follow' slug=follow.slug path=request.path  %}" class="btn col-12 un-follow btn-primary">following</a>
+                    </div>
+                </div>
+              <hr>
+                {% endfor %}
+                {% else %}
+               
+                <p class="text-secondary text-center fw-bold fs-2">No Following</p>
+                {% endif %}
+                <div class="col-12">
+                 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

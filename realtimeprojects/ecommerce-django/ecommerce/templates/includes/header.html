@@ -1,0 +1,100 @@
+<!-- Navigation Bar  -->
+<nav
+  class="navbar ps-4 navbar-dark p-3 navbar-expand-sm p-3 sticky-top bg-dark"
+>
+  <div>
+    <h3 class="h1">
+        <!-- Nav head -->
+      <a class="h1 navbar navbar-brand">Shop</a>
+    </h3>
+  </div>
+  <!-- Menu Button -->
+  <div>
+    <button
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbardown"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse justify-content-end" id="navbardown">
+    <ul class="navbar-nav gap-3">
+      <li class="nav-item text-center me-3">
+        <a
+          class="nav-link {% if request.path == '/' %} active {% endif %}"
+          href="{% url 'ecommerce:home'%}"
+        >Home</a>
+      </li>
+      <li class="nav-item text-center me-3">
+        <a
+          class="nav-link {% if request.path == '/shopping/' %} active {% endif %}"
+          href="{% url 'ecommerce:shopping'%}"
+          >Shopping</a
+        >
+      </li>
+      <!-- check Authenticate   -->
+      {% if user.is_authenticated %}
+      <li class="nav-item text-center">
+        <a
+          class="nav-link{% if request.path == '/mycart/' %} active {% endif %}"
+          href="{% url 'ecommerce:mycart'%}"
+          >My Cart</a
+        >
+      </li>
+      <li class="nav-item text-center">
+        <a
+          class="nav-link {% if request.path == '/myorder/' %} active {% endif %}"
+          href="{% url 'ecommerce:myorder' %}"
+          >My Order</a
+        >
+      </li>
+      <li class="nav-item text-center">
+        <button
+          class="btn btn-dark"
+          onclick="Logout_conform(`{% url 'ecommerce:logout' %}`)"
+        >
+          Logout
+        </button>
+      </li>
+      <!-- check super user  -->
+      {% if user.is_superuser %}
+      <li class="nav-item text-white">
+        <a
+          class="nav-link {% if request.path == '/admin_view/' %} active {% endif %}"
+          href="{% url 'ecommerce:admin' %}"
+          ><i class="fa-solid fa-user me-1"></i>{{user | upper}}</a
+        >
+      </li>
+      {% else %}
+      <li class="nav-item text-white">
+        <a
+          class="nav-link {% if request.path == '/user_view/' %} active {% endif %}"
+          href="{% url 'ecommerce:user' %}"
+          ><i class="fa-solid fa-user me-1"></i>{{user | upper}}</a
+        >
+      </li>
+      {% endif %}
+      <!-- check super user end  -->
+      {% else %}
+      <li class="nav-item">
+        <a
+          class="nav-link {% if request.path == '/login/' %} active {% endif %}"
+          href="{% url 'ecommerce:login'%}"
+          >Login</a
+        >
+      </li>
+      {% endif %}
+      <!--check Authenticate end  -->
+    </ul>
+  </div>
+</nav>
+<!-- Navigation Bar end -->
+<script>
+  function Logout_conform(url) {
+    let conform = confirm("Are Sure Logout ?");
+    if (conform) {
+      window.location.href = url;
+    }
+  }
+</script>

@@ -1,0 +1,65 @@
+{% extends 'base/base.html'%}
+{% block title %}
+Update Product
+{% endblock %}
+{% block content %}
+<!-- =============== Main Content ================  -->
+<div class="d-flex justify-content-center mb-1 col-12">
+    <form method="POST" enctype="multipart/form-data" class="border col-10 col-sm-8 col-md-7  px-4 py-2 mt-2 rounded bg-light shadow">
+        <h1 class="text-center mt-1">UPDATE PRODUCT</h1>
+        {% csrf_token %}
+       <div class="d-flex col-12 gap-2 justify-content-between">
+           <div class="col-6">
+               <div class="mb-3">
+                   <label for="">Product Name:</label> 
+                   <input name="product_name" value="{{product.product_name}}" class="form-control" type="text">
+               </div>
+               <div class="mb-3">
+                   <label for="">Price:</label> 
+                   <input name="price" value="{{product.price}}" class="form-control" type="text">
+               </div>
+               <div class="mb-3">
+                   <label for="">Quantity:</label> 
+                   <input name="quantity" value="{{product.quantity}}" class="form-control" type="text">
+               </div>
+           </div>
+           <div class="col-6">
+               <div class="mb-3">
+                   <label for="">Rating:</label> 
+                   <input name="rating" value="{{product.rating}}" class="form-control" type="text">
+               </div> 
+               <div class="mb-3">
+                   <label for="">Delivery Case:</label> 
+                   <input name="delivery" value="{{ product.delivery }}" class="form-control" type="text">
+               </div>
+               <div class="mb-3">
+                   <label for="">Offer:</label> 
+                   <input name="offer" value="{{product.offer}}" class="form-control" type="text">
+               </div>
+           </div>
+       </div>
+       <div class="mb-3">
+        <input  type="checkbox" name="is_trending" id="">
+        <label  for="">Trending</label>
+       </div>
+        <div class="mb-3">
+            <label for="">Category :</label>
+            <select   class="form-select" name="category" id="" >
+                <option {% if product.category == 'Electronics' %} selected {% endif %} value="Electronics">Electronics</option>
+                <option {% if product.category == 'Footwear' %} selected {% endif %} value="Footwear">Footwear</option>
+                <option {% if product.category == 'Clothing' %} selected {% endif %} value="Clothing">Clothing</option>
+                <option {% if product.category == 'Furniture' %} selected {% endif %} value="Furniture">Furniture</option>
+                <option {% if product.category == 'Accessories' %} selected {% endif %} value="Accessories">Accessories</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="">Product Image:</label> 
+            <input name="img_url" value="" class="form-control" type="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Product</button>
+    </form>
+</div>
+<!-- ========= Main content end  ================ -->
+{% endblock %}
+
+

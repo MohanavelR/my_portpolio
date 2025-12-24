@@ -1,0 +1,81 @@
+{% extends "base/base.html"%}
+{% load static %}
+{% block title %} Product 
+{% endblock %} 
+{% block content %}
+ <!--================= Main Content=================== -->
+ <!--================= Message Box==================== -->
+ {% include 'includes/messages.html'%}
+ <!-- ================ Message Box end================ -->
+  <!--========== Show Details section================= -->
+<div class="d-flex justify-content-center col-12">
+  <div class="d-flex mt-2 col-11 col-md-8 bg-white rounded custom-card-deatils">
+    <div class="w-50 col-7 custom-detail-img p-2">
+      <img
+        src="{{get_product.formatting_url }}"
+        class="card-img-top rounded"
+        alt="..."
+      />
+    </div>
+    <div class="p-2">
+      <h3 class="card-title">{{get_product.product_name| upper}}</h3>
+      <p class="h5 mt-1">Price : ${{get_product.price}}</p>
+      <p class="h5 mt-1">Quantity : {{get_product.quantity}}</p>
+      <p class="h5 mt-1">Offer : {{get_product.offer}}%</p>
+      <p class="h5 mt-1">
+        Rating : {{get_product.rating}} <i class="fa-solid fa-star"></i>
+      </p>
+      <p class="h5 mt-1">Delivery : ${{get_product.delivery}}</p>
+      <form method="post" onsubmit="conform_submit()">
+        {% csrf_token %}
+        <div class="mt-2">
+          <div onclick="decrease()" class="btn-danger btn px-3">
+            <span class="h4">-</span>
+          </div>
+          <input
+            name="quantity"
+            id="count"
+            class="col-4 col-sm-2 text-center p-1 py-2 rounded"
+            readonly
+            type="text"
+            value="1"
+            maxlength="{{get_product.quantity}}"
+            max="{{get_product.quantity}}"
+          />
+          <div onclick="increase()" class="btn btn-primary px-3">
+            <span class="h5">+</span>
+          </div>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          {% if user.is_authenticated %}
+          <button type="submit" class="btn btn-success mt-2 col-12">
+            Order
+          </button>
+          {% else %}
+          <a
+            class="btn btn-success mt-2 col-12"
+            href="{% url 'ecommerce:login' %}"
+            >Order</a
+          >
+          {% endif %}
+        </div>
+      </form>
+      {% if user.authenticated == False %} {% endif %}
+    </div>
+  </div>
+</div>
+<!--=========== Details Section end=================== -->
+<h1 class="m-3">Related Products</h1>
+<!--============ Related product section ================  -->
+{% include 'includes/card.html'%}
+<!--=========== Related product section end ============== -->
+<!-- =======main Content end====================== -->
+<script>
+  function conform_submit(e) {
+    let conform = confirm("Are sure Your order Conform ? ");
+    if (!conform) {
+      e.preventDefault();
+    }
+  }
+</script>
+{% endblock %}

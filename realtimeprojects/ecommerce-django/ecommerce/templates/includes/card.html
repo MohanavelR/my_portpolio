@@ -1,0 +1,79 @@
+{% load static %}
+<!--  -->
+
+<div
+  class="container col-12 gap-5 d-flex justify-content-evenly mt-2 flex-wrap"
+>
+  {% for product in products %}
+  <div class="card custom-card px-3 pt-1" style="width: 18rem">
+    {% if product.is_trending %}
+    <h5 class="custom-badge-head">
+      <span class="badge custom-badge bg-warning"
+        ><i class="fa-solid fa-star"></i
+      ></span>
+    </h5>
+    {% endif %}
+
+    <img
+      src="{{ product.formatting_url}}"
+      class="card-img-top rounded"
+      alt="Default Image"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-center">{{product.product_name | upper }}</h5>
+      <div>
+        <p class="h6">${{product.price}}</p>
+        <p><span>Quantity:</span><span>{{product.quantity}}</span></p>
+        <p>
+          Rating:<span
+            >{{product.rating}} <i class="fa-solid fa-star"></i
+          ></span>
+        </p>
+        <p>Offers: <span>{{product.offer}}%</span></p>
+      </div>
+      <div class="d-flex justify-content-between mx-3 my-3">
+        <a
+          href="{% url 'ecommerce:detail' slug=product.slug %}"
+          class="btn btn-success"
+          >Shop</a
+        >
+        {% if user.is_authenticated %} {% if product.is_favourited %}
+        <button disabled class="btn btn-secondary">
+          <i class="fa-solid fa-heart"></i><span class="ms-1">Added</span>
+        </button>
+        {% else %}
+        <a
+          href="{% url 'ecommerce:add_cart' id=product.pk %}"
+          class="btn btn-warning"
+          ><i class="fa-solid fa-cart-shopping"></i
+          ><span class="ms-1">Add Cart</span></a
+        >
+        {%endif %} {% else %}
+        <a href="{% url 'ecommerce:login'%}" class="btn btn-warning"
+          ><i class="fa-solid fa-cart-shopping"></i
+          ><span class="ms-1">Add Card</span></a
+        >
+        {% endif %}
+      </div>
+      <div class="d-flex justify-content-center col-12">
+        {% if request.path == '/mycart/' %}
+        <button
+          onclick="conform_delete(`{% url 'ecommerce:delete_cart' slug=product.fav_slug %}`)"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<script>
+  function conform_delete(url) {
+    let conform = confirm("Are Sure Delete Your favourite Product ?");
+    if (conform) {
+      window.location.href = url;
+    }
+  }
+</script>

@@ -1,0 +1,268 @@
+{% extends "base/base.html" %}
+{% block title %}
+Details
+{% endblock %}
+{% block contant %}
+<style>
+    .details-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 50px 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .post-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    .post-main-content {
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        margin-bottom: 2rem;
+    }
+    
+    .post-title {
+        color: #2d3748;
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .post-category {
+        display: inline-block;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-left: 1rem;
+        vertical-align: middle;
+    }
+    
+    .post-meta {
+        color: #718096;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .post-meta::before {
+        content: '📅';
+        font-size: 1.2rem;
+    }
+    
+    .post-image-wrapper {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    
+    .post-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .post-image-wrapper:hover img {
+        transform: scale(1.03);
+    }
+    
+    .post-content {
+        color: #4a5568;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    
+    .post-content p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .sidebar-card {
+        background: white;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        overflow: hidden;
+        position: sticky;
+        top: 20px;
+    }
+    
+    .sidebar-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .sidebar-card .card-body {
+        padding: 2rem;
+    }
+    
+    .sidebar-title {
+        color: #2d3748;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1.2rem;
+    }
+    
+    .sidebar-title::before {
+        content: '📚';
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    .related-posts-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .related-posts-list li {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+    
+    .related-posts-list li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .related-posts-list li:hover {
+        transform: translateX(5px);
+    }
+    
+    .related-posts-list a {
+        color: #4a5568;
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .related-posts-list a::before {
+        content: '→';
+        color: #667eea;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+    
+    .related-posts-list a:hover {
+        color: #667eea;
+    }
+    
+    .related-posts-list a:hover::before {
+        transform: translateX(5px);
+    }
+    
+    .no-posts-message {
+        color: #a0aec0;
+        font-style: italic;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    @media (max-width: 992px) {
+        .post-main-content {
+            padding: 2rem 1.5rem;
+        }
+        
+        .post-title {
+            font-size: 2rem;
+        }
+        
+        .sidebar-card {
+            position: static;
+            margin-top: 2rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .post-title {
+            font-size: 1.5rem;
+        }
+        
+        .post-category {
+            display: block;
+            margin-left: 0;
+            margin-top: 0.5rem;
+            width: fit-content;
+        }
+        
+        .post-main-content {
+            padding: 1.5rem 1rem;
+        }
+    }
+</style>
+
+<div class="container-fluid" style="min-height: 100vh;">
+    <div class="details-hero"></div>
+    
+    <div class="post-container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="post-main-content">
+                    <h1 class="post-title">
+                        {{post.title}}
+                        <span class="post-category">{{post.category.name}}</span>
+                    </h1>
+                    
+                    <p class="post-meta">Posted on {{post.create_at|date:"F j, Y"}}</p>
+                    
+                    <div class="post-image-wrapper">
+                        <img src="{{post.formatted_img_url}}" alt="{{post.title}}">
+                    </div>
+                    
+                    <div class="post-content">
+                        <p>{{post.content}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card sidebar-card">
+                    <div class="card-body">
+                        <h5 class="sidebar-title">Related Posts</h5>
+                        <ul class="related-posts-list">
+                            {% if related_post %}
+                            {% for post in related_post %}
+                            <li>
+                                <a href="{% url 'blog:details' slug=post.slug %}">{{post.title}}</a>
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            <li class="no-posts-message">No related posts available</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

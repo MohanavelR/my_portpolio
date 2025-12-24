@@ -1,0 +1,2 @@
+from .populate_posts import Command as populatepostsCommand
+from .populate_categories import Command as populatecategoriesCommand

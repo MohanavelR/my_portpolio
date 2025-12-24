@@ -1,0 +1,79 @@
+{% extends 'base/Base_content.html'%}
+{% block content %}    
+<div class="container mt-3">
+   
+    <div class="container">
+        <!-- Add Task Form Section -->
+        <div class="card bg-dark text-white mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Add New Task</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="title" class="form-label">Task Title:</label>
+                            <input required type="text" class="form-control" name="title" id="title" placeholder="Enter task title" />
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="status" class="form-label">Status:</label>
+                            <select required class="form-select" name="status" id="status">
+                                <option value="">Select Status</option>
+                                <option value="completed">Completed</option>
+                                <option value="Pending">Pending</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3 d-flex align-items-end">
+                            <button class="btn btn-success w-100" type="submit">
+                                <span class="h5 mb-0">+</span> Add Task
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="description" class="form-label">Description:</label>
+                            <textarea required id="description" class="form-control" name="description" rows="3" placeholder="Enter task description"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Task List Section -->
+        <div class="mb-3">
+            <h3 class="text-white">Your Tasks</h3>
+            <hr class="bg-white">
+        </div>
+
+        {% if datas %}
+        <div class="row g-4">
+            {% for data in datas %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card bg-dark text-white h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">{{data.title}}</h5>
+                        <span class="badge bg-success">{{data.status}}</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted mb-2">{{data.create_date| date:'F j, Y'}}</small>
+                        <p class="flex-grow-1">{{data.description}}</p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <a href="{% url 'Task:task_update' slug=data.slug %}" class="btn btn-primary btn-sm flex-fill">Update</a>
+                            <a href="{% url 'Task:delete_task' slug=data.slug %}" class="btn btn-danger btn-sm flex-fill">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-secondary text-center" role="alert">
+            <h5>No Tasks Found</h5>
+            <p class="mb-0">Start by adding your first task above!</p>
+        </div>
+        {% endif %} 
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+
+.main-link-icon{
+    display: flex;
+    margin-bottom: 30px;
+    gap: 20px;
+    color: aliceblue;
+}
+.main-link-icon .link-icon{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(11, 11, 83);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+.dark .main-link-icon .link-icon:hover{
+    box-shadow: 0 0 20px white ;
+}
+ .main-link-icon .link-icon:hover{
+    box-shadow: 0 0 20px rgb(4, 36, 213) ;
+}
+
+.main-link-icon .link-icon:hover a{
+       color: rgb(169, 214, 6);
+       font-size: 30px;
+       transform: scale(1.2);
+}
+.main-link-icon .link-icon a{
+color: white;   
+transition: all .3s;
+}
+.main-link-icon .link-icon:first-child{
+    animation: left 2s ease; 
+    }
+    .main-link-icon .link-icon:nth-child(2){
+        animation: up 2s ease; 
+}
+.main-link-icon .link-icon:nth-child(3){
+    animation: down 2s ease; 
+}
+.main-link-icon .link-icon:nth-child(4){
+    animation: right 2s ease; 
+}

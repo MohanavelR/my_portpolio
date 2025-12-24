@@ -1,0 +1,31 @@
+<div class="messages   rounded bg-danger">
+  {% for field in form %}
+    {%if field.errors%}
+      {% for error in field.errors %}
+          <p class="px-3 py-1 message mb-2 text-white fw-bold  text-center">{{field.label_tag}}{{error}}</p>
+      {% endfor %}
+    {% endif %}    
+  {% endfor %}
+</div>
+<div class="messages bg-danger rounded  ">
+  {% for error in form.non_field_errors %}
+  {% if error %}
+  <p class="px-3 py-1 message text-center text-white fw-bold">{{error}}</p>
+  {% endif %}
+  {% endfor %}
+</div>
+<div class="messages rounded">
+  {% for message in messages %}
+  {% if message %}
+  <p class="px-3 py-1 bg-primary rounded message text-white fw-bold text-center">{{message}}</p>
+  {% endif  %}
+  {% endfor %}
+</div>
+<script>
+  let message=document.querySelectorAll('.message')
+  setTimeout(()=>{
+    message.forEach(m=>{
+      m.style.display='none'
+    })
+  },3000)
+</script>

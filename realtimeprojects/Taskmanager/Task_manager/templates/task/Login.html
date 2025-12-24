@@ -1,0 +1,37 @@
+{% extends 'base/Login_Register_basecontent.html'%}
+{% block content %}
+        <div class="col-11 col-sm-8 col-md-6 bg-primary mt-2 p-3 rounded ">
+         <h3 class=" text-white text-center">Login</h3>
+         </div>
+         
+         <div class="col-11 col-sm-8 col-md-6 p-3 bg-dark rounded ">
+            <form  method="post">
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="">
+                       User email:
+                    </label>
+                    <input type="text" required class="form-control mt-2" name="email">
+                </div>
+                <div class="form-group p-2">
+                    <label for="">
+                        Password:
+                    </label>
+                    <input type="text" required class="form-control mt-2" name="password">
+                </div>
+                <div class="col-12 d-flex  justify-content-center align-items-center ">
+                <button class="btn btn-success " type="submit">Submit</button>
+               </div>
+               <div class="col-12 mt-3 d-flex  justify-content-around align-items-center">
+                <div class="row d-flex  justify-content-around align-items-center">
+                    <a class="col" href="{% url 'Task:register'%}">Register</a>
+                    <span class="col ms-3">|</span>
+                    <a class="col" href="{% url 'Task:for_pass'%}">Forgotpassword</a>
+                </div>
+               </div>
+            </form>
+         </div>
+{% endblock %}
+<script>
+ 
+</script>

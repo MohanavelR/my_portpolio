@@ -1,0 +1,252 @@
+{% extends "base/base.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block contant %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 50px 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .hero-title {
+        color: white;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .alert-custom {
+        animation: slideDown 0.5s ease-out;
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    }
+    
+    @keyframes slideDown {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .post-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        height: 100%;
+    }
+    
+    .post-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .post-card .card-img-wrapper {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .post-card .card-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .post-card:hover .card-img-wrapper img {
+        transform: scale(1.1);
+    }
+    
+    .post-card .card-body {
+        padding: 1.5rem;
+    }
+    
+    .post-card .card-title {
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+    
+    .post-card .card-text {
+        color: #718096;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    
+    .read-more-btn {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+    
+    .read-more-btn:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        color: white;
+    }
+    
+    .category-badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .category-badge:hover {
+        transform: scale(1.05);
+        color: white;
+        box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+    
+    .pagination {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 50px;
+        overflow: hidden;
+    }
+    
+    .pagination .page-item .page-link {
+        border: none;
+        color: #667eea;
+        font-weight: 600;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .pagination .page-item .page-link:hover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        transform: scale(1.05);
+    }
+    
+    .pagination .page-item:first-child .page-link {
+        border-radius: 50px 0 0 50px;
+    }
+    
+    .pagination .page-item:last-child .page-link {
+        border-radius: 0 50px 50px 0;
+    }
+    
+    .no-posts-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 15px;
+        margin: 2rem 0;
+    }
+    
+    .no-posts-section p {
+        font-size: 1.5rem;
+        color: #718096;
+        font-weight: 600;
+    }
+</style>
+
+<div class="container-fluid" style="min-height: 100vh;">
+    <div class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="hero-title">{{"Latest Posts"}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center mb-3">
+            <div class="alert alert-danger alert-custom fw-bold text-center" role="alert" style="min-width: 300px;">
+                {{message}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    
+    {% if posts %}        
+    <div class="row m-3 mb-5">
+        {% for post in posts %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card post-card">
+                <div class="card-img-wrapper">
+                    <img src="{{post.formatted_img_url}}" alt="{{post.title}}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.content | truncatechars:25}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'blog:details' slug=post.slug %}" class="read-more-btn">Read More</a>
+                        <a class="category-badge" href="#">{{post.category.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        <div class="col-12 mb-3 d-flex justify-content-center align-items-center">
+            {% if posts.has_other_pages %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if posts.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="First">
+                            <span aria-hidden="true">&laquo; first</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{posts.previous_page_number}}" aria-label="Previous">
+                            <span aria-hidden="true">previous</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item">
+                        <span class="page-link">Page {{posts.number}} of {{posts.paginator.num_pages}}</span>
+                    </li>
+                    {% if posts.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{posts.next_page_number}}" aria-label="Next">
+                            <span aria-hidden="true">next</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{posts.paginator.num_pages}}" aria-label="Last">
+                            <span aria-hidden="true">last &raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    {% else %}  
+        <div class="col-12">
+            <div class="no-posts-section">
+                <p>No Posts Available.</p>
+            </div>
+        </div>
+    {% endif %} 
+    </div>
+</div>
+{% endblock %}
