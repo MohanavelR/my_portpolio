@@ -21,7 +21,7 @@
 
         .container {
             width: 210mm;
-            height: 297mm;
+            min-height: 297mm;
             margin: 20px auto;
             padding: 10mm 9mm;
             background: white;
@@ -84,6 +84,8 @@
             margin-bottom: 1pt;
             margin-top: 2pt;
         }
+
+        .job-header:first-child { margin-top: 0; }
 
         .job-title {
             font-weight: bold;
@@ -185,7 +187,7 @@
                 box-shadow: none;
             }
 
-            .download-btn,button {
+            .download-btn, .print-btn, button {
                 display: none;
             }
 
@@ -221,11 +223,27 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
+
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13pt;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <button class="download-btn" onclick="window.print()">📥 Download PDF</button>
- <button  style="margin-top: 60px; position: fixed; left: 20px; top: 20px;padding: 10px 20px; border-radius: 5px; cursor: pointer; " class="" onclick="window.print()">Print</button>
+    <button class="print-btn" onclick="window.print()">Print</button>
 
     <div class="container">
         <div class="header">
@@ -239,7 +257,7 @@
         <div class="section">
             <div class="section-title">Professional Summary</div>
             <div class="section-content">
-                Results-driven Full Stack Developer with strong expertise in Python (Django, Flask, FastAPI) and JavaScript (MERN Stack), experienced in building, deploying, and maintaining scalable web applications. Delivered 10+ end-to-end projects with hands-on experience in RESTful API development, database design and optimization, authentication, and responsive UI implementation. Certified Full Stack Developer with six months of full-time, real-world experience contributing to live, production-grade client projects. Recognized for clean code practices, rapid adaptability, and a strong focus on performance, scalability, and modern development standards.
+                Results-driven Full Stack Developer with strong expertise in Python (Django, Flask, FastAPI) and JavaScript (MERN Stack), experienced in building, deploying, and maintaining scalable web applications. Delivered 10+ end-to-end projects with hands-on experience in RESTful API development, database design and optimization, authentication, and responsive UI implementation. Certified Full Stack Developer with real-world experience contributing to live, production-grade client projects across web and mobile platforms. Recognized for clean code practices, rapid adaptability, and a strong focus on performance, scalability, and modern development standards.
             </div>
         </div>
 
@@ -254,10 +272,18 @@
                 <ul>
                     <li>Delivered 4+ production-ready client applications supporting 1,500+ users, including Car-Fit, Cell World, Electricity Services, and Restaurant management systems.</li>
                     <li>Designed and implemented full-stack functionality using React.js, Node.js/Express.js, MongoDB/MySQL, JWT authentication, and responsive HTML/CSS UI, improving load times by approximately 35%.</li>
-                    <li>Developed reusable React components, robust form validation, API integration with Axios, and ensured consistent mobile-first performance across all devices.</li>
-                    <li>Collaborated in Agile team environment with code reviews, Git version control, and production debugging to maintain code quality standards.</li>
-                    <li>Optimized application performance using lazy loading, code splitting, image compression, caching strategies, and database indexing techniques.</li>
-                </ul>
+                        </ul>
+
+                <div class="job-header">
+                    <span class="job-title">Full Stack Developer</span>
+                    <span class="job-date">Jan 2026 - May 2026</span>
+                </div>
+                <div class="company">Nulinz Global Technologies Private Limited</div>
+<ul>
+    <li><strong>DacDiag:</strong> Telemedicine platform with doctor/patient modules, video calls, notifications, address lookup, and online payments.</li>
+    <li><strong>NBN:</strong> Marketplace platform connecting customers and sellers with custom pages and admin management.</li>
+    <li><strong>Community App:</strong> Event and job posting platform for colleges and companies with admin management and mobile APIs.</li>
+</ul>
 
                 <div class="job-header">
                     <span class="job-title">Full Stack Web Development Course</span>
@@ -266,7 +292,6 @@
                 <div class="company">FalconX EdTech Solutions Pvt Ltd, Coimbatore</div>
                 <ul>
                     <li>Completed comprehensive MERN stack certification covering HTML5, CSS3, JavaScript ES6+, React.js, Node.js, Express.js, and MongoDB with hands-on projects.</li>
-                    <li>Built 5+ full-stack applications from scratch, gaining practical experience in responsive design, API integration, user authentication, and database management.</li>
                 </ul>
             </div>
         </div>
@@ -294,6 +319,24 @@
             <div class="section-content">
                 <div class="projects-grid">
                     <div class="project">
+                        <div class="project-title">DacDiag - Telemedicine Platform</div>
+                        <div class="project-tech">Agora, Firebase Notification, Google Address API, Razorpay, AntD UI</div>
+                        <div class="project-desc">Doctor & Patient module with live video consultations via Agora, Firebase push notifications, Google-based address lookup, Razorpay payment integration, and AntD UI, built for web app and mobile API.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">NBN - Customer-Seller Marketplace</div>
+                        <div class="project-tech">React.js, Node.js, MongoDB, AntD UI, Admin Panel</div>
+                        <div class="project-desc">Marketplace platform connecting customers and sellers, featuring a custom landing page builder, AntD UI, and a full admin panel for managing listings and users.</div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-title">Community App - Events & Jobs</div>
+                        <div class="project-tech">Node.js, MongoDB, Admin Panel, Mobile APIs</div>
+                        <div class="project-desc">Platform for colleges and companies to post events and job opportunities, with an admin panel for content management and mobile-facing backend APIs used by students and customers.</div>
+                    </div>
+
+                    <div class="project">
                         <div class="project-title">WB Root - Invoice & Quotation System</div>
                         <div class="project-tech">React.js, FastAPI, PostgreSQL, PDF Generation</div>
                         <div class="project-desc">Professional invoicing system with automated PDF generation, client management, itemized billing, tax calculations, payment tracking, quotation-to-invoice conversion, and RESTful API with PostgreSQL optimization.</div>
@@ -306,21 +349,9 @@
                     </div>
 
                     <div class="project">
-                        <div class="project-title">E-commerce Web Application (Django)</div>
-                        <div class="project-tech">Python, Django, MySQL, Bootstrap, PayPal</div>
-                        <div class="project-desc">Django e-commerce platform with product management, user authentication, session cart, PayPal integration, product reviews, wishlist, inventory tracking, and admin panel.</div>
-                    </div>
-
-                    <div class="project">
                         <div class="project-title">Social Media App (Instagram Clone)</div>
                         <div class="project-tech">Django, MySQL, Bootstrap, AWS S3, AJAX</div>
                         <div class="project-desc">Social networking app with user profiles, AWS S3 image uploads, real-time likes/comments with AJAX, follow system, feeds, notifications, infinite scrolling, and responsive design.</div>
-                    </div>
-
-                    <div class="project">
-                        <div class="project-title">Blog Management System</div>
-                        <div class="project-tech">Python, Django, MySQL, Bootstrap, TinyMCE</div>
-                        <div class="project-desc">Blog platform with post CRUD, nested comments, authentication, role-based access, category/tag management, SEO optimization, pagination, and content moderation.</div>
                     </div>
 
                     <div class="project">
@@ -329,16 +360,16 @@
                         <div class="project-desc">Accessible learning platform for persons with disabilities featuring progress tracking, quizzes, achievements, personalized paths, WCAG compliance, keyboard navigation, and screen reader support.</div>
                     </div>
 
-                    <div class="project">
+                    <!-- <div class="project">
                         <div class="project-title">Personal Portfolio Website</div>
                         <div class="project-tech">HTML5, CSS3, JavaScript ES6, EmailJS</div>
                         <div class="project-desc">Single-page portfolio with responsive layout, interactive animations, EmailJS contact form, performance optimization, and cross-browser compatibility.</div>
-                    </div>
+                    </div> -->
 
                     <div class="project">
                         <div class="project-title">Client Projects (Professional Internship)</div>
-                        <div class="project-tech">Html,Css,Js,Bootstrap</div>
-                        <div class="project-desc">Developed static, responsive landing pages for live client websites including Carfit , CakeBake Restaurant, and CellWorld. Focused on modern UI design, structured layouts, reusable React components, and responsive design to ensure cross-browser and multi-device compatibility.</div>
+                        <div class="project-tech">Html, Css, Js, Bootstrap</div>
+                        <div class="project-desc">Developed static, responsive landing pages for live client websites including Carfit, CakeBake Restaurant, and CellWorld. Focused on modern UI design, structured layouts, reusable React components, and responsive design.</div>
                     </div>
                 </div>
             </div>
@@ -349,16 +380,10 @@
             <div class="section-content skills-grid">
                 <div class="skill-item"><span class="skill-label">Frontend:</span> HTML5, CSS3, JavaScript (ES6+), React.js (Hooks, Context API, Redux), AntD, Bootstrap, Tailwind CSS, Responsive Design, Mobile-First Development</div>
                 <div class="skill-item"><span class="skill-label">Backend:</span> Node.js, Express.js, Python (Django, Flask, FastAPI), RESTful APIs, Authentication & Authorization, Session Management, JWT Tokens</div>
-                <div class="skill-item"><span class="skill-label">Database:</span> MongoDB , MySQL, PostgreSQL, Database Design,</div>
-                <div class="skill-item"><span class="skill-label">Tools:</span>Cloudinary, Git, GitHub, VS Code, Postman, Axios | <span class="skill-label">Soft Skills:</span> Problem Solving, Critical Thinking, Team Collaboration</div>
+                <div class="skill-item"><span class="skill-label">Database:</span> MongoDB, MySQL, PostgreSQL, Database Design</div>
+                <div class="skill-item"><span class="skill-label">Tools:</span> Cloudinary, Git, GitHub, VS Code, Postman, Axios | <span class="skill-label">Soft Skills:</span> Problem Solving, Critical Thinking, Team Collaboration</div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.querySelector('.download-btn').addEventListener('click', function() {
-            window.print();
-        });
-    </script>
 </body>
 </html>
