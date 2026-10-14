@@ -1,218 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    line-height: 1.1;
+    color: #000;
+    background: #f0f0f0;
+    font-size: 9pt;
+}
 
-        body {
-            font-family: 'Calibri', 'Arial', sans-serif;
-            line-height: 1.1;
-            color: #000;
-            background: #f0f0f0;
-            font-size: 9pt;
-        }
+.container {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    padding: 10mm 9mm;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 
-        .container {
-            width: 210mm;
-            height: 297mm;
-            margin: 20px auto;
-            padding: 10mm 9mm;
-            background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
+.header {
+    text-align: center;
+    margin-bottom: 4pt;
+    border-bottom: 2.5px solid #000;
+    padding-bottom: 4pt;
+}
 
-        .header {
-            text-align: center;
-            margin-bottom: 4pt;
-            border-bottom: 2.5px solid #000;
-            padding-bottom: 4pt;
-        }
+.header h1 {
+    font-size: 20pt;
+    font-weight: bold;
+    margin-bottom: 2pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .header h1 {
-            font-size: 20pt;
-            font-weight: bold;
-            margin-bottom: 2pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.header .title {
+    font-size: 11pt;
+    font-weight: 600;
+    margin-bottom: 2pt;
+}
 
-        .header .title {
-            font-size: 11pt;
-            font-weight: 600;
-            margin-bottom: 2pt;
-        }
+.contact-info {
+    font-size: 8.5pt;
+    line-height: 1.2;
+}
 
-        .contact-info {
-            font-size: 8.5pt;
-            line-height: 1.2;
-        }
+.contact-info a {
+    color: #0066cc;
+    text-decoration: none;
+}
 
-        .contact-info a {
-            color: #0066cc;
-            text-decoration: none;
-        }
+.section {
+    margin-bottom: 6pt;
+}
 
-        .section {
-            margin-bottom: 6pt;
-        }
+.section-title {
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1.8px solid #000;
+    margin-bottom: 3pt;
+    padding-bottom: 1pt;
+    letter-spacing: 0.4px;
+}
 
-        .section-title {
-            font-size: 10pt;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-bottom: 1.8px solid #000;
-            margin-bottom: 3pt;
-            padding-bottom: 1pt;
-            letter-spacing: 0.4px;
-        }
+.section-content {
+    font-size: 9pt;
+    line-height: 1.15;
+}
 
-        .section-content {
-            font-size: 9pt;
-            line-height: 1.15;
-        }
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1pt;
+    margin-top: 2pt;
+}
 
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1pt;
-            margin-top: 2pt;
-        }
+.job-title {
+    font-weight: bold;
+    font-size: 9.5pt;
+}
 
-        .job-title {
-            font-weight: bold;
-            font-size: 9.5pt;
-        }
+.job-date {
+    font-style: italic;
+    font-size: 8.5pt;
+}
 
-        .job-date {
-            font-style: italic;
-            font-size: 8.5pt;
-        }
+.company {
+    font-style: italic;
+    font-size: 8.5pt;
+    margin-bottom: 1.5pt;
+}
 
-        .company {
-            font-style: italic;
-            font-size: 8.5pt;
-            margin-bottom: 1.5pt;
-        }
+ul {
+    margin-left: 14pt;
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+}
 
-        ul {
-            margin-left: 14pt;
-            margin-top: 1pt;
-            margin-bottom: 1pt;
-        }
+li {
+    margin-bottom: 1pt;
+    font-size: 9pt;
+    line-height: 1.15;
+}
 
-        li {
-            margin-bottom: 1pt;
-            font-size: 9pt;
-            line-height: 1.15;
-        }
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2pt;
+}
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2pt;
-        }
+.skill-item {
+    font-size: 9pt;
+    line-height: 1.2;
+}
 
-        .skill-item {
-            font-size: 9pt;
-            line-height: 1.2;
-        }
+.skill-label {
+    font-weight: bold;
+    font-size: 9pt;
+}
 
-        .skill-label {
-            font-weight: bold;
-            font-size: 9pt;
-        }
+.education-item {
+    margin-bottom: 2pt;
+    font-size: 9pt;
+    line-height: 1.2;
+}
 
-        .education-item {
-            margin-bottom: 2pt;
-            font-size: 9pt;
-            line-height: 1.2;
-        }
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
 
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5pt 8pt;
+    margin-top: 2pt;
+}
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5pt 8pt;
-            margin-top: 2pt;
-        }
+.project {
+    break-inside: avoid;
+}
 
-        .project {
-            break-inside: avoid;
-        }
+.project-title {
+    font-weight: bold;
+    font-size: 9pt;
+    margin-bottom: 1pt;
+}
 
-        .project-title {
-            font-weight: bold;
-            font-size: 9pt;
-            margin-bottom: 1pt;
-        }
+.project-tech {
+    font-style: italic;
+    font-size: 8pt;
+    margin-bottom: 1pt;
+    color: #333;
+}
 
-        .project-tech {
-            font-style: italic;
-            font-size: 8pt;
-            margin-bottom: 1pt;
-            color: #333;
-        }
+.project-desc {
+    font-size: 8.5pt;
+    line-height: 1.15;
+}
 
-        .project-desc {
-            font-size: 8.5pt;
-            line-height: 1.15;
-        }
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
 
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-                background: white;
-            }
+    .container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 10mm 9mm;
+        box-shadow: none;
+    }
 
-            .container {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 10mm 9mm;
-                box-shadow: none;
-            }
+    .download-btn,
+    button {
+        display: none;
+    }
 
-            .download-btn,button {
-                display: none;
-            }
+    .section,
+    .project {
+        page-break-inside: avoid;
+    }
+}
 
-            .section, .project {
-                page-break-inside: avoid;
-            }
-        }
+@page {
+    size: A4;
+    margin: 0;
+}
 
-        @page {
-            size: A4;
-            margin: 0;
-        }
+.download-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13pt;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
 
-        .download-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            background: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13pt;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background: #0052a3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-  
+.download-btn:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

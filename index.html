@@ -6,13 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohanavel R - Portfolio</title>
     <meta name="theme-color" content="#0000ff">
-    <meta
-  http-equiv="Content-Security-Policy"
-  content="default-src 'self'; connect-src 'self' https://my-portpolio-ruby.vercel.app https://api.web3forms.com;"
->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/resume.css">
     <link rel="stylesheet" href="css/animation.css">
+    <title>Mohanavel R - Portfolio</title>
+<meta name="theme-color" content="#0000ff">
+
+
+<meta
+  http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline'
+      https://cdnjs.cloudflare.com
+      https://fonts.googleapis.com;
+    font-src 'self' data:
+      https://cdnjs.cloudflare.com
+      https://fonts.gstatic.com
+      https://ka-f.fontawesome.com;
+    img-src 'self' data: https:;
+    connect-src 'self'
+      https://my-portpolio-ruby.vercel.app
+      https://api.web3forms.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self' https://api.web3forms.com;
+  "
+>
+ 
     <style>
 
     </style>
@@ -1067,8 +1089,8 @@
             </div>
 
             <form class="contact-form scroll-reveal-scale" id="contactForm">
-                <p id="formStatus"></p>
                 <h3>Send Me a Message</h3>
+                <p id="formStatus"></p>
 
                 <div class="form-row">
                     <div class="form-group">

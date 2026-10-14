@@ -250,22 +250,25 @@ html {
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 8px;
+    font-size: larger;
     text-align: center;
-    display: none;
+    font-weight: bold;
+    /* display: none; */
 }
 
 #formStatus.success {
     background: rgba(76, 175, 80, 0.1);
     border: 1px solid #4CAF50;
     color: #4CAF50;
-    display: block;
+
+    /* display: block; */
 }
 
 #formStatus.error {
     background: rgba(244, 67, 54, 0.1);
     border: 1px solid #f44336;
     color: #f44336;
-    display: block;
+    /* display: block; */
 }
 
 /* Responsive Design Improvements */

@@ -5,7 +5,7 @@ const status = document.getElementById("formStatus"); // Added status element
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Collect form data into a JSON payload
+    
     const payload = {
         access_key: "d1a9982f-f85f-467d-a1c2-67049150d57f",
         name: form.name.value,
