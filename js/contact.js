@@ -1,41 +1,67 @@
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
+const form = document.getElementById('contactForm'); // Updated to match your form ID
+const submitBtn = form.querySelector('button[type="submit"]');
+const status = document.getElementById("formStatus"); // Added status element
+
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const form = this;
-    const status = document.getElementById("formStatus");
-
+    // Collect form data into a JSON payload
     const payload = {
+        access_key: "d1a9982f-f85f-467d-a1c2-67049150d57f",
         name: form.name.value,
         email: form.email.value,
-        message: form.message.value,
-        subject:form.subject.value
+        subject: form.subject.value,
+        message: form.message.value
     };
-    console.log(payload)
-    status.textContent = "Sending...";
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+    
+    if (status) {
+        status.textContent = "Sending...";
+        status.style.color = "orange";
+    }
 
     try {
-        const response = await fetch("https://my-portpolio-ruby.vercel.app/api/send-mail", {
+        const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(payload)
         });
 
         const data = await response.json();
 
-        if (data.success) {
-            status.style.color = "green";
-            status.textContent = "Message sent successfully!";
+        if (response.ok) {
+            if (status) {
+                status.style.color = "green";
+                status.textContent = "Success! Your message has been sent.";
+            } else {
+                alert("Success! Your message has been sent.");
+            }
             form.reset();
         } else {
-            status.style.color = "red";
-            status.textContent = data.message || "Failed to send message.";
+            if (status) {
+                status.style.color = "red";
+                status.textContent = data.message || "Failed to send message.";
+            } else {
+                alert("Error: " + data.message);
+            }
         }
 
     } catch (error) {
-        status.style.color = "red";
-        status.textContent = "Server error. Please try again later.";
+        if (status) {
+            status.style.color = "red";
+            status.textContent = "Something went wrong. Please try again.";
+        } else {
+            alert("Something went wrong. Please try code again.");
+        }
         console.error("Contact form error:", error);
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     }
 });
